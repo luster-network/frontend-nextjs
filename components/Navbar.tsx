@@ -12,7 +12,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex h-24 pt-8 px-12 items-center text-white flex-row justify-between'>
+    <div className='flex h-24 pt-8 px-12 items-center flex-row justify-between'>
       <div className='relative'>
         <p className='text-4xl md:text-6xl font-semibold'>LUSTER</p>
         {/* <Image className='w-[14rem]' src={logo} alt="logo" /> */}

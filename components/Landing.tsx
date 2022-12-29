@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Landing = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 py-20 text-white gap-5 p-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 py-20 gap-5 p-4'>
       
       <div className="col-span-1 place-self-center md:w-[80%]">
         <p className="text-6xl md:text-8xl font-semibold">Welcome to</p>
