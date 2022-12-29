@@ -56,6 +56,8 @@ const Champions = () => {
             </div>
 
         </div>
+
+        <div className='h-1 bg-white w-full'></div>
       
     </div>
   )
