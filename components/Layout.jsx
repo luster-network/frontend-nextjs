@@ -1,5 +1,6 @@
 import Landing from "./Landing"
 import Navbar from "./Navbar"
+import Champions from "./Champions"
 import Bootcamps from "./Bootcamps/Bootcamps"
 
 const Layout = ({children}) => {
@@ -9,6 +10,7 @@ const Layout = ({children}) => {
         <Navbar />
         <Landing />
         <Bootcamps />
+        <Champions />
         <div>
             {children}
         </div>
