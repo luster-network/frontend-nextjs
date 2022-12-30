@@ -9,7 +9,6 @@ import { Pagination, Autoplay, Navigation } from "swiper";
 import Image from 'next/image';
 
 // import "./styles.css";
-import Card from "./Card"
 
 const Reviews = () =>{
 
@@ -53,7 +52,7 @@ const Reviews = () =>{
     ]
 
   return (
-  <div className='px-16'>
+  <div className='px-8 md:px-16'>
     <p className=' pt-12 text-5xl font-semibold text-white items-center text-center'>Reviews</p>
     <div className='h-[1px] mb-16 bg-white m-auto w-[17rem]'></div>
     <Swiper

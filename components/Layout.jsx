@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import Champions from "./Champions"
 import Perks from "./Perks"
 import Solution from "./Solution"
+import Faq from "./Faq"
 import Bootcamps from "./Bootcamps/Bootcamps"
 import Reviews from "./Bootcamps/Reviews"
 
@@ -17,6 +18,7 @@ const Layout = ({children}) => {
         <Perks />
         <Reviews />
         <Solution />
+        <Faq />
         <div>
             {children}
         </div>

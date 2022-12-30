@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 const Landing = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 py-20 gap-5 p-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 py-20 gap-5 px-8 md:p-4'>
       
       <div className="col-span-1 place-self-center md:w-[80%]">
-        <p className="text-6xl md:text-8xl font-semibold">Welcome to</p>
-        <p className="text-6xl md:text-8xl font-semibold">Cryptonauri</p>
-        <p className="text-6xl md:text-8xl font-semibold">Bootcamps</p>
+        <p className="text-5xl md:text-8xl font-semibold">Welcome to</p>
+        <p className="text-5xl md:text-8xl font-semibold">Cryptonauri</p>
+        <p className="text-5xl md:text-8xl font-semibold">Bootcamps</p>
         <p className="text-2xl my-8">We are on the mission to upskill 1M+ Web3 enthusiasts to Web3 developers by 2025</p>
         <Link 
           href='/' 

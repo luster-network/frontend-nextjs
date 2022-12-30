@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 const Champions = () => {
   return (
-    <div className='px-2 py-24 md:px-24 text-center'>
+    <div className='px-8 py-24 md:px-24 text-center'>
 
         <p className='text-5xl md:text-7xl font-semibold'>Our Champions</p>
 
