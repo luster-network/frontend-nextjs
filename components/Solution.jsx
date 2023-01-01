@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {motion, AnimatePresence } from 'framer-motion'
 
 import Content from "./Content"
 
@@ -21,8 +22,8 @@ const Solution = () => {
         setContent('Ecosystem')
     }
 
-    const clickButton = " border p-3 bg-gray-800 md:text-2xl my-2 rounded-xl mx-8"
-    const unclickedButton = "border p-3 rounded-xl md:text-2xl my-2 hover:bg-gray-800 mx-8"
+    const clickButton = " border p-3 md:text-2xl font-semibold my-2 rounded-xl bg-gradient-to-r from-[#58AFEF] to-[#9374DC] mx-8"
+    const unclickedButton = "border p-3 rounded-xl font-semibold md:text-2xl my-2 hover:bg-gray-800 mx-8"
 
   return (
     <div className='mx-8 md:mx-24 border-white md:mt-[12rem] mb-24 pb-12'>
@@ -38,9 +39,18 @@ const Solution = () => {
                 <button className={`tab ${content==='Ecosystem'? `${clickButton}` : `${unclickedButton}`}`} onClick={ecosystemHandler}> Ecosystem </button>
             </div>
             
-            <div className='mt-12'>
-                <Content content={content} />
-            </div>
+            <AnimatePresence 
+            >
+                <motion.div
+                    className='mt-12'
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    <Content content={content} />
+                </motion.div>
+            </AnimatePresence>
         
         </div>
     </div>
