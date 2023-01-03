@@ -94,6 +94,7 @@ const Header = () => {
                 <div className="absolute top-20 left-0 right-0 w-full px-2 rounded-b-md">
                     <ul className="bg-gray-900 flex flex-col items-center text-lg rounded-md transition-all">
                         <li className="p-1 cursor-pointer "><a href="https://community.cryptonaukri.com/" target='_blank' className="">Community</a></li>
+                        <li className="p-1 cursor-pointer "><a href="#bootcamps" className="">Bootcamps</a></li>
                         <li className="p-1 cursor-pointer "><a href="/jobs" className="">Jobs</a></li>
                         <li className="p-1 cursor-pointer "><a href="/internships" className="">Internships</a></li>
                         <li className="p-1 cursor-pointer "><a href="/aboutus" className="">About us</a></li>
@@ -107,6 +108,9 @@ const Header = () => {
                       <a href="https://community.cryptonaukri.com/" target='_blank' className="">Community</a>
                     </li>
 
+                    <li className="cursor-pointer  hover:underline hover:underline-offset-4">
+                      <a href="#bootcamp" className="">Bootcamps</a>
+                    </li>
                     <li className="cursor-pointer  hover:underline hover:underline-offset-4">
                       <a href="/jobs" className="">Jobs</a>
                     </li>
