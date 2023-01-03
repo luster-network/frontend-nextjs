@@ -1,16 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {BsPlusLg, BsClock} from "react-icons/bs"
-import { useLocation } from "react-router-dom";
 import {TiTick} from "react-icons/ti"
 import {IoMdDownload} from "react-icons/io"
 
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-const Curriculum = () => {
+const EthereumCurriculum = () => {
 
     const content = [
         {
@@ -99,82 +92,66 @@ const Curriculum = () => {
           },
         ]
 
-    const location = useLocation();
-
-    const [expanded, setExpanded] = useState(-1);
-
-    const handleChange =
-        (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
-        };
-
   return (
-    <div className=' px-4 border-t-2 pt-20 mb-12 md:px-20'>
+    <div className='pt-8 mb-12'>
 
-
-        <h1 className='text-5xl mb-16 text-[#003979] font-bold'>Curriculum</h1>
+        <h1 className='text-4xl md:text-6xl mb-16 text-[#006DF6] font-bold'>Curriculum</h1>
         <div className='flex flex-col md:flex-row mb-12 md:justify-between items-center'>
-            <p className='w-[80%]'>Best in-class content by leading faculty and industry leaders in the form of live Sessions, 10+ Web3 projects, doubt solving and many more!</p>
-            <a href='/Ethereum_Curriculum.pdf' download="Ethereum_Curriculum.pdf" ><button className='border-2 border-[#003979] m-0 hover:text-[#003979] rounded-xl px-4 py-3  hover:bg-white bg-[#003979] text-[15px] flex items-center text-white hover:cursor-pointer'>Curriculum <IoMdDownload className='ml-2'/></button></a>
+            <p className='md:w-[80%] text-lg md:text-2xl'>Best in-class content by leading faculty and industry leaders in the form of live Sessions, 10+ Web3 projects, doubt solving and many more!</p>
+            <a href='WEB3Bootcamp_Cryptonaukri_Curriculum.pdf' download="WEB3Bootcamp_Cryptonaukri_Curriculum.pdf" ><button className='border-2 text-xl border-[#006DF6] m-0 hover:scale-125 transition duration-300 rounded-xl px-4 py-3 bg-[#006DF6] flex items-center text-white hover:cursor-pointer'>Curriculum <IoMdDownload className='ml-2'/></button></a>
         </div>
 
         <div className='flex flex-col md:flex-row items-center md:justify-center'>
-            <div className='items-center text-center md:mr-12'>
-                <p className='text-[#003979] font-semibold mb-2'>200+</p>
+            <div className='items-center text-xl my-3 text-center md:mr-12'>
+                <p className='text-[#006DF6] font-semibold mb-2'>200+</p>
                 <p className='font-semibold'>Hours of learning</p>
             </div>
 
-            <div className='items-center md:mr-12 text-center'>
-                <p className='text-[#003979] font-semibold mb-2'>10+</p>
+            <div className='items-center text-xl my-3 md:mr-12 text-center'>
+                <p className='text-[#006DF6] font-semibold mb-2'>10+</p>
                 <p className='font-semibold'>WEB3 Projects</p>
             </div>
 
-            <div className='items-center md:mr-12 text-center'>
-                <p className='text-[#003979] font-semibold mb-2'>100%</p>
+            <div className='items-center text-xl my-3 md:mr-12 text-center'>
+                <p className='text-[#006DF6] font-semibold mb-2'>100%</p>
                 <p className='font-semibold'>Placement</p>
             </div>
 
-            <div className='items-center text-center'>
-                <p className='text-[#003979] font-semibold mb-2'>Pay fee</p>
+            <div className='items-center text-xl my-3 text-center'>
+                <p className='text-[#006DF6] font-semibold mb-2'>Pay fee</p>
                 <p className='font-semibold flex items-center'>After placement ! <div className='text-green-600 text-2xl'><TiTick /></div> </p>
             </div>
 
         </div>
 
         {/* Carousel div */}
-        <div className='shadow-md mx-auto mt-20  w-full md:w-2/3'>       
+        <div className='shadow-md mx-auto mt-20  w-full md:w-2/3'>           
             {content.map((item, i) => {
                 return (
                 <>
-                    <div key={i} className='my-2 overflow-hidden border-t'>
-                        <Accordion expanded={expanded === i} key={i} onChange={handleChange(i)} style={{textAlign:"left"}}>
-                            <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                            >
-                            <Typography><b>{item.title}</b></Typography>
-                            </AccordionSummary>
-                            {(i!=10 && i!=11) && item.desc.map((desc) => (
-                            <AccordionDetails>
-                            <Typography>
-                                {desc}
-                            </Typography>
-                            </AccordionDetails>
-                            ))}
-                            {(i!=10 && i!=11) && 
-                                <AccordionDetails>
-                                <Typography>
-                                {item.last_point}
-                                </Typography>
-                                </AccordionDetails>
-                            }
-                        </Accordion>
+                    <div className='overflow-hidden my-2 rounded-lg border'>
+                        <label>
+                        <input className='absolute opacity-0 peer' type="checkbox"></input>
+                        <div className='flex items-center cursor-pointer justify-between'>
+                            <div className='p-5'>
+                                <p className=' m-0 text-lg font-semibold'>{item.title}</p>
+                                <div className='flex items-center mt-2 text-xs '><BsClock className='m-0 mr-1'/><p className='text-xs m-0'>{item.week}</p></div>
+                            </div>
+                            { i!=6 && <BsPlusLg className=' h-12 float-right peer-checked:rotate-45 peer-checked:text-indigo-500 mr-4'/>}
+                        </div>
+                        {(i!=6 && i!=11) && item.desc.map((desc) => {
+                            return(
+                                <div className='bg-gray-900 text-lg peer-checked:border-b-2 border-white max-h-0 peer-checked:max-h-20'><p className='p-5 my-auto'>{desc}</p></div>
+                            );
+                        })}
+                        {(i!=6 && i!=11) && <div className='bg-gray-900 text-lg max-h-0 peer-checked:max-h-20'><p className='p-5'>{item.last_point}</p></div>}
+                        </label>
                     </div>
                 </>)})}
+
         </div>
     </div>
   )
 }
 
-export default Curriculum
+export default EthereumCurriculum

@@ -15,7 +15,7 @@ const Landing = () => {
         <p className="text-2xl my-8">We are on the mission to upskill 1M+ Web3 enthusiasts to Web3 developers by 2025</p>
         <div className="flex flex-wrap">
         <Link 
-          href='/' 
+          href='/register' 
           className='h-[4rem] text-3xl transform transition duration-500 hover:scale-125 my-2 flex font-semibold border-transparent rounded-lg items-center w-[15rem] bg-gradient-to-r from-[#58AFEF] to-[#9374DC]  justify-center'
         >
           Register

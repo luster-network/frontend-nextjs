@@ -6,6 +6,7 @@ import "./styles.css"
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { ToastContainer} from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
         <Footer />
+        <ToastContainer />
       </div>
     </div>
 )}

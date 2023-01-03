@@ -57,12 +57,11 @@ const Faq = () => {
             <div className='flex items-center cursor-pointer border rounded-xl border-white justify-between'>
                 <div className='p-5'>
                     <p className=' m-0 md:text-xl font-semibold'>{item.ques}</p>
-                    <div className='flex items-center mt-2 text-xs '><p className='text-xs m-0'>{item.week}</p></div>
                 </div>
                 <BsPlusLg className=' h-12 float-right peer-checked:rotate-45 peer-checked:text-indigo-500 mr-4'/>
             </div>
 
-            <div className='peer-checked:border border-white mb-3 bg-gray-900 max-h-0 peer-checked:max-h-20'><p className='p-5 my-auto'>{item.ans}</p></div>
+            <div className='peer-checked:border rounded-lg border-white mb-3 bg-gray-900 max-h-0 peer-checked:max-h-20'><p className='p-5 my-auto'>{item.ans}</p></div>
 
             </label>
         </div>
