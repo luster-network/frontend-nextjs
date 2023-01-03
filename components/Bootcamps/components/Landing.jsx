@@ -1,13 +1,18 @@
 import React from 'react'
 import SolanaCurriculum from './SolanaCurriculum'
+import { useRouter } from 'next/router'
+import EthereumCurriculum from './EthereumCurriculum';
 
 const Landing = () => {
+
+  const router = useRouter();
+
   return (
     <div className='px-8'>
       <div className='pt-12 min-h-[95vh] flex flex-col items-center justify-center'>
           <div className='flex flex-col mb-4 md:mb-0 md:flex-row'>
             <p className='text-[#006DF6] m-0 text-[55px] font-bold'>
-              <span className='text-blue-800 m-0'>Solana </span>
+              <span className='text-blue-800 m-0'>{router.pathname==="/bootcamps/solana"? "Solana" : "Ethereum"} </span>
               <span className='m-0'>Blockchain</span>
             </p>
           </div>
@@ -21,7 +26,7 @@ const Landing = () => {
       </div>
 
       <div id='Curriculum'>
-        <SolanaCurriculum />
+        {router.pathname==="/bootcamps/solana" ?<SolanaCurriculum />:<EthereumCurriculum/>}
       </div>
 
       <div className='flex flex-col border-3 items-center text-center justify-center md:my-16 py-12'>
