@@ -1,38 +1,20 @@
 import React from 'react'
-// import Landing from './components/Landing'
+import AdditionalInfo from '../../components/Bootcamps/components/AdditionalInfo'
+import Graph from '../../components/Bootcamps/components/Graph'
 import Landing from '../../components/Bootcamps/components/Landing'
-// import Graph from './components/Graph'
-// import Champions from './components/Champions'
-// import Solution from './components/solution/Solution'
-// import Perks from './components/Perks'
-// import Fees from './components/Fees'
-// import Faq from './components/Faq'
-// import Backbone from './components/backbone/Backbone'
+import Reviews from '../../components/Bootcamps/Reviews'
+import Faq from "../../components/Faq"
+import Champions from "../../components/Champions"
 
 const Solana = () => {
   return (
-    <div>
-        <Landing />
-        {/* <Graph />
-        {/* <Curriculum /> */}
-
-        {/* <div id="Our Champions">
-          <Champions />
-        </div>
-    
-        <div id="Backbone">
-        <Backbone />
-        </div>
-
-        <div id="Perks">
-        <Perks />
-        </div>
-        <Fees />
-
-        <div id="Curriculum">
-          <Solution />
-        </div>
-        <Faq /> */}
+    <div className='px-2 md:px-20'>
+      <Landing />
+      <Graph />
+      <Champions />
+      <AdditionalInfo />
+      <Reviews />
+      <Faq />
     </div>
   )
 }

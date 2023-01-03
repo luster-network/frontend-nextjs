@@ -6,6 +6,7 @@ import akash from "../assets/akash.jpeg"
 
 import {AiOutlineLinkedin} from "react-icons/ai"
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Champions = () => {
   return (
@@ -16,7 +17,7 @@ const Champions = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 py-16 gap-8'>       
 
             <div className='col-span-1 flex flex-col items-center place-self-center'>
-                <img src={bristin} alt="bristin" className='rounded-full w-[60%] mb-6' />
+                <Image src={bristin} alt="bristin" className='rounded-full w-[60%] mb-6' />
                 <p className='text-3xl flex items-center justify-center'>
                     Bristin Borah
                     <Link href='https://www.linkedin.com/in/bristin-borah-739b63179' target="_blank">
@@ -29,7 +30,7 @@ const Champions = () => {
             </div>
 
             <div className='col-span-1 flex flex-col items-center place-self-center'>
-                <img src={akash} alt="akash" className='rounded-full w-[60%] mb-6' />
+                <Image src={akash} alt="akash" className='rounded-full w-[60%] mb-6' />
                 <p className='text-3xl flex items-center justify-center'>
                     Akash Singh
                     <Link href='https://www.linkedin.com/in/akash-singh-071850193/' target="_blank">
@@ -42,7 +43,7 @@ const Champions = () => {
             </div>
 
             <div className='col-span-1 flex flex-col items-center place-self-center'>
-                <img src={tathagat} alt="tathagat" className='rounded-full w-[60%] mb-6' />
+                <Image src={tathagat} alt="tathagat" className='rounded-full w-[60%] mb-6' />
                 <p className='text-3xl flex items-center justify-center'>
                     Tathagat
                     <Link href='https://www.linkedin.com/in/tathagat-926779191/' target="_blank">
