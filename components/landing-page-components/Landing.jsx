@@ -1,4 +1,3 @@
-import landing_image from "../assets/landing.png"
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -32,7 +31,7 @@ const Landing = () => {
       </div>
 
       <div className="col-span-1 place-self-center">
-        <Image src={landing_image} alt="web_landing" className="h-[80%] w-[80%]" />
+        <Image src="/assets/landing.png" alt="web_landing" width={500} height={500}  className="h-[80%] w-[80%]" />
       </div>
       
     </div>

@@ -3,8 +3,8 @@ import AdditionalInfo from '../../components/Bootcamps/components/AdditionalInfo
 import Graph from '../../components/Bootcamps/components/Graph'
 import Landing from '../../components/Bootcamps/components/Landing'
 import Reviews from '../../components/Bootcamps/Reviews'
-import Faq from "../../components/Faq"
-import Champions from "../../components/Champions"
+import Faq from "../../components/landing-page-components/Faq"
+import Champions from "../../components/landing-page-components/Champions"
 
 const Solana = () => {
   return (

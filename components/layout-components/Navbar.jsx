@@ -4,11 +4,14 @@ import {CgProfile} from "react-icons/cg"
 import {MdOutlineSpaceDashboard, MdLogout, MdBusiness} from 'react-icons/md';
 import {AiFillCaretDown, AiOutlineUser} from 'react-icons/ai'
 import {useRouter} from "next/router"
+import Link from 'next/link'
+import {useSession, signOut, signIn} from 'next-auth/react'
 
 const Header = () => {
 
   const router = useRouter();
   const [color, setColor] = useState(false);
+  const { data: session, status } = useSession()    
 
   const API = process.env.REACT_APP_API_ENDPOINT;
 
@@ -46,42 +49,6 @@ const Header = () => {
     // setAnchorEl(null);
     router.push("/auth/logout");
   };
-
-  const getUser = async () => {
-    if (token) {
-      //console.log(token.split('"')[1]);
-      //console.log(token);
-      const response = await axios.get(
-        `${API}/api/v1/user/loggedInUserDetails`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      //console.log(response.data);
-      setUser(response.data);
-    }
-    if (btoken) {
-      const response = await axios.get(
-        "https://api.cryptonaukri.com/api/v1/business/loggedInBusinessDetails",
-        {
-          headers: {
-            Authorization: `Bearer ${btoken}`,
-          },
-        }
-      );
-      //console.log(response.data);
-      setUser(response.data);
-    }
-    //console.log("bt",btoken)
-  };
-
-  useEffect(() => {
-    if (token) {
-      getUser();
-    }
-  }, [token]);
 
   return(
     <nav className={`w-full top-0 shadow-md bg-black bg-opacity-70 backdrop-blur-xl fixed text-[20px]`}>
@@ -130,7 +97,7 @@ const Header = () => {
             <div className="flex items-center gap-2">
               {
                 // need to access from cookies when cookies applied over whole site
-                (login || cUser==="DEVELOPER") ?
+                (status == 'authenticated') ?
                 <div className="flex relative items-center gap-2">
                   <div  className='cursor-pointer '>
                     <div onClick={()=> {setOpen(!open)}} className="flex items-center relative">
@@ -155,36 +122,18 @@ const Header = () => {
                   :
                   <div className="flex relative items-center gap-2">
                         <div  className='cursor-pointer '>
-                          <div onClick={()=>{setOpenLogin(!openLogin); setOpenSignup(false)} } className="flex items-center relative">
+                        <button>
+                        <div className="flex items-center relative">
                             Login
-                            <AiFillCaretDown size={13}  /> 
-                          </div> 
+                          </div>
+                        </button>
                         </div> 
 
                         {/* Dropdown Content */}
-                              
-                        { openLogin &&
-                          <div className="bg-gray-800 absolute right-12 shadow-lg top-8 w-[195px] text-lg rounded-lg py-1">
-
-                            <div 
-                              onClick={() => {router.push("/auth/devlogin"); setOpenLogin(!openLogin)} } 
-                              className="flex flex-row px-3 py-1  hover:bg-gray-900 hover:cursor-pointer"
-                            >
-                              <AiOutlineUser className="h-6 mr-2" /> Developer login
-                            </div>
-
-                            <div 
-                              onClick={() => {router.push("/companyLogin"); setOpenLogin(!openLogin)} } 
-                              className="flex flex-row px-3 py-1  hover:bg-gray-900 hover:cursor-pointer"
-                            >
-                              <MdBusiness className="h-6 mr-2" /> Business login
-                            </div>
-
-                          </div>
-                        }
+                        
 
                         <div  className='cursor-pointer  ml-4'>
-                          <div onClick={()=>{setOpenSignup(!openSignup); setOpenLogin(false)} } className="flex items-center relative">
+                          <div className="flex items-center relative">
                             Signup
                             <AiFillCaretDown size={13}  /> 
                           </div> 
