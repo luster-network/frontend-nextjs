@@ -1,12 +1,15 @@
 import React,{useState} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Slide } from 'react-slideshow-image';
 // Import Swiper styles
+import 'react-slideshow-image/dist/styles.css'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import "swiper/css/navigation";
 import { Pagination, Autoplay, Navigation } from "swiper";
-
+import "swiper/css/effect-cards";
+import { EffectCards } from "swiper";
 // import "./styles.css";
 
 const Reviews = () =>{
@@ -56,17 +59,14 @@ const Reviews = () =>{
     <div className='h-[1px] mb-16 bg-white m-auto w-[17rem]'></div>
     <div className='block md:hidden'>
         <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            pagination={{
-            clickable: true,
-            }}
-            modules={[Navigation, Pagination, Autoplay]}
-            autoplay={true}
+            effect={"cards"}
+            grabCursor={true}
+            modules={[EffectCards]}
+            className="mySwiper m-5"
         >
             {people.map((person,i) => (
                 <SwiperSlide>
-                    <div className='flex flex-col p-8 items-center border-2 border-white justify-center'>
+                    <div className='flex flex-col p-8 items-center border-2 border-white bg-slate-900 justify-center'>
                         <img src={person.image} alt={person.name} className="w-[13rem] rounded-full object-cover h-[13rem]" />
                         <p className='text-2xl my-4'>{person.name}</p>
                         <p className='text-left'>{person.review}</p>
@@ -80,16 +80,17 @@ const Reviews = () =>{
     <div className='hidden md:block'>
         <Swiper
             slidesPerView={2}
-            spaceBetween={30}
+            spaceBetween={0}
             pagination={{
             clickable: true,
             }}
             modules={[Navigation, Pagination, Autoplay]}
             autoplay={true}
+            navigation={true}
         >
             {people.map((person,i) => (
-                <SwiperSlide>
-                    <div className='flex flex-col p-8 items-center border-2 w-[28rem] h-[35rem] border-white justify-center'>
+                <SwiperSlide key={person.name}>
+                    <div className='flex flex-col p-8 items-center border-2 w-[28rem] h-[35rem shadow-neutral-400 shadow-md rounded-3xl border-white justify-center m-20 mx-auto'>
                         <img src={person.image} alt={person.name} className="w-[15rem] rounded-full object-cover h-[15rem]" />
                         <p className='text-2xl my-4'>{person.name}</p>
                         <p className='text-left'>{person.review}</p>
