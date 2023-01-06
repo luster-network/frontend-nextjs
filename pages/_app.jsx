@@ -1,26 +1,24 @@
 import '../styles/globals.css'
 import '../styles/header.scss'
-import Layout from '../components/landing-page-components/Layout'
-import { SessionProvider } from "next-auth/react"
+import Layout from '../components/Layout'
 import {useRouter} from "next/router"
+import { CookiesProvider } from 'react-cookie';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
-  if(router.pathname === '/auth/Login'){
+  if(router.pathname === '/auth/login' || router.pathname === '/auth/signup'){
     return( 
-      <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
-      </SessionProvider>
       )
   };
 
   return(
-      <SessionProvider session={pageProps.session}>
-        <Layout>
+    <CookiesProvider>
+      <Layout>
           <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>  
+      </Layout>
+    </CookiesProvider>
   )
 }
 

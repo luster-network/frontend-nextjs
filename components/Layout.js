@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Navbar from '../layout-components/Navbar'
-import Footer from '../layout-components/Footer'
+import Navbar from './layout-components/Navbar'
+import Footer from './layout-components/Footer'
 import { ToastContainer} from "react-toastify";
 
 const Layout = ({children}) => {
@@ -14,11 +14,9 @@ const Layout = ({children}) => {
           content="Luster.network is a job portal for Blockchain developers where Blockchain developers jobs in India are shared by Blockchain startups."
         />
       </Head>
-      <div className='bg-[#05050A] text-white min-h-full'>
+      <div className='bg-gradient-to-br from-indigo-900 via-gray-900 to-slate-900 text-white overflow-x-hidden'>
         <Navbar />
-        <div className=''>
           {children}
-        </div>
         <Footer />
         <ToastContainer />
       </div>

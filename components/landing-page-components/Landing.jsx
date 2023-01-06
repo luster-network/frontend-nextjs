@@ -5,7 +5,7 @@ import {BsSearch} from "react-icons/bs"
 
 const Landing = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 py-20 gap-5 min-h-[100vh] px-8 md:p-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 mx-auto items-center py-20 gap-5 min-h-[100vh] w-[75%] mx-auto md:p-4'>
       
       <div className="col-span-1 mt-12 place-self-center md:w-[80%]">
         <p className="text-5xl md:text-7xl font-semibold">Learn Web3,</p>
@@ -15,7 +15,7 @@ const Landing = () => {
         <div className="flex flex-wrap">
         <Link 
           href='/register' 
-          className='h-[4rem] text-3xl transform transition duration-500 hover:scale-125 my-2 flex font-semibold border-transparent rounded-lg items-center w-[15rem] bg-gradient-to-r from-[#58AFEF] to-[#9374DC]  justify-center'
+          className='h-[4rem] text-3xl transform transition duration-500 hover:scale-105 my-2 flex font-semibold border-transparent rounded-lg items-center w-[15rem] bg-gradient-to-r from-[#58AFEF] to-[#9374DC]  justify-center'
         >
           Register
         </Link>
@@ -31,7 +31,7 @@ const Landing = () => {
       </div>
 
       <div className="col-span-1 place-self-center">
-        <Image src="/assets/landing.png" alt="web_landing" width={500} height={500}  className="h-[80%] w-[80%]" />
+        <Image src="/assets/landing.png" alt="web_landing" width={700} height={700}  className="h-[90%] w-[90%] mx-auto" />
       </div>
       
     </div>
