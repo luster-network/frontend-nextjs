@@ -1,33 +1,90 @@
-import { Axios } from "axios";
+import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react";
-import {signIn, useSession} from 'next-auth/react'
 import { useRouter } from "next/router";
+import { useCookies } from 'react-cookie';
 
-const Login = () => {
+const Login = ({redirectType}) => {
     const [loading, setLoading] = useState(false) 
     const [userInfo, setUserInfo] = useState({
         email : "",
         password : ""
     });
     const router = useRouter()
+    const [loginErr, setLoginErr] = useState('')
+    const [errMsg, setErrMsg] = useState('')
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
-    const handleSubmit = async (e) => {
-     // validate your userinfo
-    e.preventDefault();
-    setLoading(true)
-    const res = await signIn("Credentials", {
-      email: userInfo.email,
-      password: userInfo.password,
-      redirect: false,
-    });
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        //console.log(email.split('@')[1]);
+        // console.log(process.env.REACT_APP_PRODUCTION_API_ENDPOINT);
+        if (userInfo.email && userInfo.password) {
+          setLoading(true);
+            const email = userInfo.email
+            const password = userInfo.password
+          try {
+            const response = await axios.post(`https://api.cryptonaukri.com/api/v1/user/login`, {
+              email,
+              password,
+            }).catch(function(error){
+              console.log(error.response.data.code)
+              setLoginErr(error.response.data.code)
 
-    console.log(res);
-    }   
+              if (loginErr === "NOT_FOUND") {
+                setErrMsg("You are not yet registered with us. Please Register your account");
+                setLoading(false);
+              }
+              if (loginErr === "INVALID") {
+                setLoading(false);
+              }
+              if (loginErr === "WRONG_PASSWORD") {
+                setErrMsg("Wrong Email or Password");
+                setLoading(false);
+              }
+              // setLoginError("Something went wrong!");
+              setLoading(false);
+            })
+            const data = response.data;
+            console.log(data)
+            if (data.userLoggedIn) {
+              setLoading(false);
+              const timestamp = new Date().getTime();
+              const expire = timestamp + 60 * 60 * 24 * 1000 * 2;
+              const expireDate = new Date(expire);
+              try {
+                setCookie("token", response.headers.authorization, {
+                  expires: expireDate,
+                  path: "/",
+                  domain: ".luster.network",
+                });
+              } catch (error) {
+                const err = error.response
+                console.log(AxiosError.response);
+              }
     
-
+              // below codes to be removed once cookies is applied accross the site
+              localStorage.setItem("token", response.headers.authorization);
+              localStorage.setItem("cUser", "DEVELOPER");
+              localStorage.setItem("login", true);
+            }
+    
+            console.log(data);
+            router.push('/')
+          } catch (error) {
+            console.log(error)
+          }
+        } else {
+          setLoginErr('empty values')
+          setErrMsg("Email and password is required.");
+          console.log("Email and password is required.");
+        }
+      };
+      
+    
+    
     return ( 
         <section className="font-quicksand flex min-h-screen bg-[#0B0D21]">
-            <section className="bg-black border-2 flex flex-col  justify-center border-neutral-50 rounded-3xl h-fit my-auto w-2/6 mx-auto">
+            <section className="bg-black border-2 flex flex-col  justify-center border-neutral-50 rounded-3xl h-fit my-auto w-10/12 md:w-2/6 mx-auto">
                 <h1 className="text-3xl text-center mt-3 text-blue-500 font-bold font-quicksand">
                     LOGIN
                 </h1>
@@ -51,24 +108,20 @@ const Login = () => {
                     className="p-3 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl"
                     />
                 
-                    {
-                        loading ?
-                        (
-                            <input  
-                            className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl text-center font-bold w-1/2 mx-auto" value="logging you in..." />
-                        ) :
-                         (
-                            <input 
-                            type="submit" 
-                            className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value="Login" />
-                        )
-                    }
-
+                    <input 
+                    type="submit" 
+                    className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value="Login" />
                 </form>
-                <button onClick={() => signIn()}>Sign in</button>
+                {
+                  (loginErr) &&
+                  <p className="m-3 text-center text-white">
+                    **{errMsg}
+                  </p>
+                }
             </section>
         </section>
      );
 }
+
 
 export default Login
