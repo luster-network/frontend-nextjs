@@ -1,12 +1,15 @@
 import React,{useState} from 'react';
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import "swiper/css/navigation";
 import { Pagination, Autoplay, Navigation } from "swiper";
-
+import "swiper/css/effect-creative";
+import { EffectCreative } from "swiper";
 // import "./styles.css";
 
 const Reviews = () =>{
@@ -15,7 +18,7 @@ const Reviews = () =>{
         {
             name: "Pranav Kumbhar",
             image: "https://drive.google.com/uc?id=1VGtIrCO9VKD_aEDjA_8Peee9hPmSn1gQ",
-            review:"I got to learn development skills and the way we should approach any problem statement. Kajal Mam is a good teacher, overall understanding is good during the lectures. Akshay is a good mentor and he solves our doubts daily. Also, he helped a lot in dapp development. Crypto Naukri is going to be a huge ecosystem for web3 companies and developers. You guys are going well, keep it up",
+            review:"I got to learn development skills and the way we should approach any problem statement. Kajal Mam is a good teacher, overall understanding is good during the lectures. Akshay is a good mentor and he solves our doubts daily. Also, he helped a lot in dapp development.",
             active:true
         },
         {
@@ -53,21 +56,27 @@ const Reviews = () =>{
   return (
   <div className='px-8 md:px-16'>
     <p className=' pt-12 text-5xl font-semibold text-white items-center text-center'>Reviews</p>
-    <div className='h-[1px] mb-16 bg-white m-auto w-[17rem]'></div>
-    <div className='block md:hidden'>
-        <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            pagination={{
-            clickable: true,
-            }}
-            modules={[Navigation, Pagination, Autoplay]}
-            autoplay={true}
-        >
+    <div className='h-[1px] mb-16 bg-white m-auto'></div>
+    <div className='block md:hidden w-[95%] mx-auto'>
+    <Swiper
+             slidesPerView={1}
+             spaceBetween={30}
+             pagination={{
+             clickable: true,
+             }}
+             modules={[Navigation, Pagination, Autoplay]}
+             autoplay={true}
+         >
             {people.map((person,i) => (
-                <SwiperSlide>
-                    <div className='flex flex-col p-8 items-center border-2 border-white justify-center'>
-                        <img src={person.image} alt={person.name} className="w-[13rem] rounded-full object-cover h-[13rem]" />
+                <SwiperSlide key={person.name}>
+                    <div className='flex flex-col p-8 items-center border-2 border-white bg-[#0c0505] justify-center rounded-md mb-10'>
+                        <picture className='flex items-center justify-center'>
+                        <img
+                            src={person.image}
+                            alt="Landscape picture"
+                            className="w-[15rem] rounded-full object-cover h-[15rem]"
+                        />
+                        </picture>
                         <p className='text-2xl my-4'>{person.name}</p>
                         <p className='text-left'>{person.review}</p>
                     </div>
@@ -80,17 +89,24 @@ const Reviews = () =>{
     <div className='hidden md:block'>
         <Swiper
             slidesPerView={2}
-            spaceBetween={30}
+            spaceBetween={0}
             pagination={{
             clickable: true,
             }}
             modules={[Navigation, Pagination, Autoplay]}
             autoplay={true}
+            navigation={true}
         >
             {people.map((person,i) => (
-                <SwiperSlide>
-                    <div className='flex flex-col p-8 items-center border-2 w-[28rem] h-[35rem] border-white justify-center'>
-                        <img src={person.image} alt={person.name} className="w-[15rem] rounded-full object-cover h-[15rem]" />
+                <SwiperSlide key={person.name}>
+                    <div className='flex flex-col p-8 items-center border-2 w-[28rem] h-[35rem shadow-neutral-400 shadow-md rounded-3xl border-white justify-center m-20 mx-auto'>
+                        <picture>
+                        <img
+                            src={person.image}
+                            alt="Landscape picture"
+                            className="w-[15rem] rounded-full object-cover h-[15rem]"
+                        />
+                        </picture>
                         <p className='text-2xl my-4'>{person.name}</p>
                         <p className='text-left'>{person.review}</p>
                     </div>

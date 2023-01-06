@@ -51,7 +51,7 @@ const Faq = () => {
     {content.map((item, i) => {
         return (
         <>
-        <div key={i} className='overflow-hidden md:mx-24'>
+        <div key={item.ques} className='overflow-hidden md:mx-24'>
             <label>
             <input className='absolute opacity-0 peer' type="checkbox"></input>
             <div className='flex items-center cursor-pointer border rounded-xl border-white justify-between'>
@@ -61,7 +61,7 @@ const Faq = () => {
                 <BsPlusLg className=' h-12 float-right peer-checked:rotate-45 peer-checked:text-indigo-500 mr-4'/>
             </div>
 
-            <div className='peer-checked:border rounded-lg border-white mb-3 bg-gray-900 max-h-0 peer-checked:max-h-20'><p className='p-5 my-auto'>{item.ans}</p></div>
+            <div className='peer-checked:border rounded-lg border-white mt-2 mb-6 bg-blue-900 max-h-0 peer-checked:max-h-20'><p className='p-5 my-auto'>{item.ans}</p></div>
 
             </label>
         </div>
