@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Perks = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 py-2 md:py-20 my-[7rem] gap-5 px-8 md:p-4 '>
+    <div className='grid grid-cols-1 md:grid-cols-2 py-2 md:pt-20 my-[7rem] gap-5 px-8 md:p-4 '>
       
       <div className="col-span-1 place-self-center pl-3 md:pl-16">
         <p className="text-4xl md:text-7xl font-semibold mb-3">Perks of learning web3</p>

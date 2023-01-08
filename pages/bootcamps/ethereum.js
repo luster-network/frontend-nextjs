@@ -3,8 +3,11 @@ import AdditionalInfo from '../../components/Bootcamps/components/AdditionalInfo
 import Graph from '../../components/Bootcamps/components/Graph'
 import Landing from '../../components/Bootcamps/components/Landing'
 import Reviews from '../../components/Bootcamps/Reviews'
+import Backbone from '../../components/Bootcamps/Backbone'
 import Faq from "../../components/landing-page-components/Faq"
 import Champions from "../../components/landing-page-components/Champions"
+import Fees from "../../components/Bootcamps/Fees"
+import Partners from "../../components/Bootcamps/components/Partners"
 
 const Ethereum = () => {
   return (
@@ -13,7 +16,10 @@ const Ethereum = () => {
       <Graph />
       <Champions />
       <AdditionalInfo />
+      <Backbone/>
       <Reviews />
+      <Fees />
+      <Partners />
       <Faq />
     </div>
   )
