@@ -10,8 +10,7 @@ const Internshipscard = () => {
     const router = useRouter();
     // const [datarr, setDataArr] = React.useState([]);
 
-
-    useEffect(()=>async ()=>{
+    const fetchInternshipsData = async () => {
       setLoading(true);
       const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/internship/findInternship`)
       .then((res)=>{
@@ -21,11 +20,17 @@ const Internshipscard = () => {
           setDataArr(resp.data);
           //console.log(dataArr);
           setLoading(false);
+          // setLoading(true);
           
       })
       .catch((err)=>{
           setLoading(false);
       });
+  }
+
+
+    useEffect(()=>{
+      fetchInternshipsData()
   } ,[]);
 
 

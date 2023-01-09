@@ -8,8 +8,7 @@ const InternshipPage = () => {
     const [loading, setLoading] = useState(false);
     // const [datarr, setDataArr] = React.useState([]);
 
-
-    useEffect(()=>async ()=>{
+    const fetchInternshipsData = async () => {
         setLoading(true);
         const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/internship/findInternship`)
         .then((res)=>{
@@ -19,11 +18,17 @@ const InternshipPage = () => {
             setDataArr(resp.data);
             //console.log(dataArr);
             setLoading(false);
+            // setLoading(true);
             
         })
         .catch((err)=>{
             setLoading(false);
         });
+    }
+
+
+    useEffect(()=>{
+        fetchInternshipsData()
     } ,[]);
 
     

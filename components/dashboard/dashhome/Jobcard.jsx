@@ -9,23 +9,27 @@ const Jobcard = () => {
     const router = useRouter();
     // const [datarr, setDataArr] = React.useState([]);
 
+    const fetchJobsData = async () => {
+      setLoading(true);
+      const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
+      .then((res)=>{
+          //console.log(res);
+          const resp = res.data;
+          //console.log(resp.data);
+          setDataArr(resp.data);
+          //console.log(dataArr);
+          setLoading(false);
+          // setLoading(true);
+          
+      })
+      .catch((err)=>{
+          setLoading(false);
+      });
+  }
 
-    useEffect(()=>async ()=>{
-        setLoading(true);
-        const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
-        .then((res)=>{
-            //console.log(res);
-            const resp = res.data;
-            //console.log(resp.data);
-            setDataArr(resp.data);
-            //console.log(dataArr);
-            setLoading(false);
-            // setLoading(true);
-            
-        })
-        .catch((err)=>{
-            setLoading(false);
-        });
+
+    useEffect(()=>{
+      fetchJobsData()
     } ,[]);
 
   return (

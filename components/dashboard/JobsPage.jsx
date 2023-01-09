@@ -3,14 +3,29 @@ import JobCard from './Job-Card/JobCard';
 import JobCardLoading from './Job-Card/JobCardLoading';
 import Axios from 'axios';
 
-const JobsPage = (e) => {
+// export async function getStaticProps() {
+//     // Call an external API endpoint to get posts.
+//     // You can use any data fetching library
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
+//     const posts = await res.json()
+  
+//     // By returning { props: { posts } }, the Blog component
+//     // will receive `posts` as a prop at build time
+//     return {
+//       props: {
+//         posts,
+//       },
+//     }
+// }
+
+const JobsPage = () => {
     // const classes = useStyles();
+    // console.log(posts)
     const [dataArr, setDataArr] = useState([]);
     const [loading, setLoading] = useState(false);
     // const [datarr, setDataArr] = React.useState([]);
 
-
-    useEffect(()=>async ()=>{
+    const fetchJobsData = async () => {
         setLoading(true);
         const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
         .then((res)=>{
@@ -26,6 +41,11 @@ const JobsPage = (e) => {
         .catch((err)=>{
             setLoading(false);
         });
+    }
+
+
+    useEffect(()=>{
+        fetchJobsData()
     } ,[]);
     return (
 
