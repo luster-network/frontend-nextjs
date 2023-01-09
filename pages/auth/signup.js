@@ -64,7 +64,7 @@ const Signup = () => {
     setOtp('');
     if (email && password && firstName && lastName && phoneNumber && location) {
       try {
-        const response = await fetch(`https://api.cryptonaukri.com/api/v1/user/otp?email=${email}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/otp?email=${email}`, {
           method: 'GET',
           mode: 'cors',
         })
@@ -172,7 +172,7 @@ const Signup = () => {
               localStorage.setItem('login', true);
             }
             
-            router.push('/')
+            router.push('/dashboard')
           } catch (error) {
             setSignUpError('Something went wrong. Try logging in')
             console.log(error)

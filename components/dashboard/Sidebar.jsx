@@ -5,10 +5,12 @@ import {AiOutlineUser} from 'react-icons/ai';
 
 import { useRouter } from "next/router";
 import { useCookies } from 'react-cookie';
+import { toast } from "react-toastify";
 
-const Sidebar = () => {
+const Sidebar = ({}) => {
 
   const router = useRouter();
+  const {option} = router.query
 
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const [loginStatus, setLoginStatus] = useState(false)
@@ -22,6 +24,9 @@ const Sidebar = () => {
     if (typeof window !== 'undefined') {
       if(cookies.token){
         setLoginStatus(true)
+      }else{
+        toast.error("Please login first")
+        router.push("/auth/login")
       }
     }
   },[cookies.token])
@@ -33,13 +38,13 @@ const Sidebar = () => {
 
         <div
           onClick={() => {router.push("/dashboard")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent`} 
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${router.pathname==="/dashboard" && "border-gray-900 font-semibold"} border-l-4 border-transparent`} 
         >
           <span>
-             <MdOutlineSpaceDashboard className="nav-icon" /> 
+             <MdOutlineSpaceDashboard className={`nav-icon font-semibold`} /> 
           </span>
           <h1
-            className={``}
+            className={`hidden xl:block`}
           >
             Dashboard
           </h1>
@@ -49,13 +54,13 @@ const Sidebar = () => {
 
         <div
           onClick={() => {router.push("/dashboard/jobs")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent`}
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="jobs" && "border-gray-900 font-semibold"} border-l-4 border-transparent`}
         >
           <span>
-            <BsBriefcase className="nav-icon" />
+            <BsBriefcase className="nav-icon font-bold" />
           </span>
           <h1
-            className={``}
+            className={`hidden xl:block`}
           >
             Jobs
           </h1>
@@ -65,13 +70,13 @@ const Sidebar = () => {
 
         <div
           onClick={() => {router.push("/dashboard/internships")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent `}
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="internships" && "border-gray-900 font-semibold"} border-l-4 border-transparent `}
         >
           <span className={``} >
-            <BsBriefcase className="nav-icon" />
+            <BsBriefcase className="nav-icon font-semibold" />
           </span>
           <h1
-            className={` `}
+            className={` hidden xl:block`}
           >
             Internships
           </h1>
@@ -84,13 +89,13 @@ const Sidebar = () => {
 
         <div
           onClick={() => {router.push("/dashboard/profile")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent`}
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="profile" && "border-gray-900 font-semibold"} border-l-4 border-transparent`}
         >
           <span className={``}>
-            <AiOutlineUser className="nav-icon" />
+            <AiOutlineUser className="nav-icon font-semibold" />
           </span>
           <h1
-            className={``}
+            className={`hidden xl:block`}
           >
             Profile
           </h1>
@@ -102,10 +107,10 @@ const Sidebar = () => {
           className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent`}
         >
           <span>
-            <MdLogout className="nav-icon" />
+            <MdLogout className="nav-icon font-semibold" />
           </span>
           <h1
-            className={``}
+            className={`hidden xl:block`}
           >
             Sign out
           </h1>

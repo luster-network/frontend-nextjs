@@ -69,7 +69,7 @@ const login = ({redirectType}) => {
             }
     
             console.log(data);
-            router.push('/')
+            router.push('/dashboard')
           } catch (error) {
             console.log(error)
           }
@@ -94,6 +94,7 @@ const login = ({redirectType}) => {
                     onChange={({ target }) =>
                         setUserInfo({ ...userInfo, email: target.value })
                     }
+                    required={true}
                     type="email"
                     placeholder="john@email.com"
                     className="p-3 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl"
@@ -103,6 +104,7 @@ const login = ({redirectType}) => {
                     onChange={({ target }) =>
                         setUserInfo({ ...userInfo, password: target.value })
                     }
+                    required={true}
                     type="password"
                     placeholder="********"
                     className="p-3 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl"

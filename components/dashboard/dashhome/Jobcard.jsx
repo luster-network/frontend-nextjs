@@ -10,7 +10,7 @@ const Jobcard = () => {
     // const [datarr, setDataArr] = React.useState([]);
 
 
-    useEffect(async ()=>{
+    useEffect(()=>async ()=>{
         setLoading(true);
         const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
         .then((res)=>{
@@ -30,13 +30,13 @@ const Jobcard = () => {
 
   return (
     <div>
-      <div className="p-4 my-6 shadow-xl bg-gray-100">
-       <h1 className="text-xl mb-2">Latest Jobs</h1>
+      <div className="p-4 my-6 shadow-indigo-600 shadow-md">
+       <h1 className="text-2xl mb-2">Latest Jobs</h1>
  
-      <div className="overflow-auto w-[660px] rounded-lg shadow hidden md:block">
+      <div className="overflow-auto w-[660px] rounded-lg bg-slate-900 shadow hidden md:block">
       <table className="w-full">
         
-        <thead className="bg-gray-50 border-b-2 border-gray-200">
+        <thead className="border-b-2 border-gray-200">
         <tr>
           <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">Job title</th>
           <th className="p-3 text-sm font-semibold tracking-wide text-left">Posted on</th>
@@ -48,19 +48,19 @@ const Jobcard = () => {
         {dataArr.reverse().slice(0,3).map((job) => (
 
         <tbody className="divide-y divide-gray-100 ">
-        <tr className="bg-white">
-          <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+        <tr className="">
+          <td className="p-3 text-sm whitespace-nowrap">
             {job.jobTitle}
           </td>
-          <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{job.postedOn.split("T")[0]}</td>
-          <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{job.ctc}</td>
-          <td className="p-3 text-sm text-gray-700 whitespace-nowrap bg-white">
-          <span
-            className={`text-xs font-medium uppercase tracking-wider text-gray-800 rounded-lg bg-opacity-50`}>
-            <div className='text-white'>
-                <button onClick={()=> {Router.push(`/jobapplication?id=${job._id}&type=job`)}} className="px-3 py-2 hover:text-[#003979] border border-[#003979] rounded-md bg-[#003979] hover:bg-white">Details</button>
+          <td className="p-3 text-sm whitespace-nowrap">{job.postedOn.split("T")[0]}</td>
+          <td className="p-3 text-sm whitespace-nowrap">{job.ctc}</td>
+          <td className="p-3 text-sm whitespace-nowrap">
+          <div
+            className={`text-xs font-medium uppercase tracking-wider rounded-lg bg-opacity-50`}>
+            <div className=''>
+                <button onClick={()=> {Router.push(`/jobapplication?id=${job._id}&type=job`)}} className="px-3 py-2  border border-[#003979] rounded-md bg-slate-800 hover:bg-indigo-800">Details</button>
             </div>
-          </span>
+          </div>
           </td>
         </tr>
         </tbody>
@@ -73,21 +73,21 @@ const Jobcard = () => {
     <div className="flex flex-col w-full md:hidden">
 
     {dataArr.reverse().slice(0,3).map((job) => (
-      <div className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
-        <div className="text-sm text-gray-700">
+      <div className=" space-y-3 p-4 my-2 shadow-indigo-600 rounded-lg shadow">
+        <div className="">
           {job.jobTitle}
         </div>
         <div className="flex items-center space-x-2 text-sm">
-        <div className="text-sm font-medium text-black mr-8">
+        <div className="text-sm font-medium mr-8">
           CTC: {job.ctc}
         </div>
-          <div className="text-gray-500 ">Posted on: {job.postedOn.split("T")[0]}</div>
+          <div className=" ">Posted on: {job.postedOn.split("T")[0]}</div>
         </div>
           <div>
             <span
-              className={`p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 rounded-lg bg-opacity-50`}>
-              <div className='text-white'>
-                <button onClick={()=> {Router.push(`/jobapplication?id=${job._id}&type=job`)}} className="px-3 py-2 hover:text-[#003979] border border-[#003979] rounded-md bg-[#003979] hover:bg-white">Details</button>
+              className={`p-1.5 text-xs font-medium uppercase tracking-wider rounded-lg bg-opacity-50`}>
+              <div className=''>
+                <button onClick={()=> {router.push(`/jobapplication?id=${job._id}&type=job`)}} className="px-3 py-2 border border-[#003979] rounded-md bg-slate-800 hover:bg-indigo-800">Details</button>
               </div>
             </span>
           </div>
@@ -97,8 +97,8 @@ const Jobcard = () => {
     {/* {dataArr.internshipsAdded.length===0?<div className='text-center my-4'>You have not yet posted any jobs</div>:<></>} */}
       
     </div>
-    <div className='w-full my-2 flex items-end relative'>
-      <div onClick={() => {router.push("/dashboard/jobs")}} className='text-red-400 right-5 top-1 absolute hover:cursor-pointer'>see all..</div>
+    <div className='w-full my-3 flex items-end relative'>
+      <div onClick={() => {router.push("/dashboard/jobs")}} className='text-red-500 right-5 top-1 absolute hover:cursor-pointer'>see all..</div>
     </div>
    </div>
     </div>
