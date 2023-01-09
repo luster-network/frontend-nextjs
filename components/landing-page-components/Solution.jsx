@@ -22,8 +22,8 @@ const Solution = () => {
         setContent('Ecosystem')
     }
 
-    const clickButton = " border p-3 md:text-2xl font-semibold my-2 rounded-xl bg-gradient-to-r from-[#58AFEF] to-[#9374DC] mx-8"
-    const unclickedButton = "border p-3 rounded-xl font-semibold md:text-2xl my-2 hover:bg-gray-800 mx-8"
+    const clickButton = " border py-3 px-4 md:text-2xl font-semibold my-2 rounded-xl bg-gradient-to-r from-[#58AFEF] to-[#9374DC] mx-8"
+    const unclickedButton = "border py-3 px-4 rounded-xl font-semibold md:text-2xl my-2 hover:bg-gray-800 mx-8"
 
   return (
     <div className='mx-8 md:mx-24 border-white md:mt-[12rem] mb-24 pb-12'>

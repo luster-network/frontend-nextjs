@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {CgProfile} from "react-icons/cg"
 import {MdOutlineSpaceDashboard, MdLogout, MdBusiness} from 'react-icons/md';
-import {AiFillCaretDown, AiOutlineUser} from 'react-icons/ai'
+import {AiFillCaretDown, AiOutlineUser, AiFillHome} from 'react-icons/ai'
 import {useRouter} from "next/router"
 import Link from 'next/link'
 import { useCookies } from 'react-cookie';
@@ -22,7 +22,7 @@ const Header = () => {
         setLoginStatus(true)
       }
     }
-  },[])
+  },[cookies.token])
 
 
   const [active, setActive] = useState(false);
@@ -43,8 +43,9 @@ const Header = () => {
   }
 
   const logout = () => {
+   router.push("/")
    removeCookie('token')
-   setLoginStatus(false) 
+   setLoginStatus(false)
   }
   console.log(loginStatus)
   return(
@@ -72,7 +73,7 @@ const Header = () => {
                     </li>
 
                     <li className="cursor-pointer  hover:underline hover:underline-offset-4">
-                      <a href="#bootcamp" className="">Bootcamps</a>
+                      <a href={`${router.pathname==="/"?"#bootcamp" : "/"}`} className="">Bootcamps</a>
                     </li>
                     <li className="cursor-pointer  hover:underline hover:underline-offset-4">
                       <a href="/jobs" className="">Jobs</a>
@@ -104,8 +105,10 @@ const Header = () => {
                   {/* Dropdown Content */}
                               
                   { open &&
-                    <div className="bg-gray-900 absolute right-4 shadow-lg top-8 w-[153px] rounded-lg py-1">
-                      <div onClick={()=>logout()} className="flex flex-row px-3 py-1 hover:bg-gray-100 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
+                    <div className="bg-gray-900 text-sm md:text-lg absolute right-4 shadow-lg top-8 w-[153px] rounded-lg py-1">
+                      <div onClick={()=>{router.push("/"); setOpen(!open)}} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><AiFillHome className="h-6 mr-2" /> Home page</div>
+                      <div onClick={()=>{router.push("/dashboard"); setOpen(!open)}} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdOutlineSpaceDashboard className="h-6 mr-2" /> Dashboard</div>
+                      <div onClick={()=>{logout(); setOpen(!open)}} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
                     </div>
                   }
                             
