@@ -55,7 +55,7 @@ const login = ({redirectType}) => {
                 setCookie("token", response.headers.authorization, {
                   expires: expireDate,
                   path: "/",
-                  domain: ".luster.network",
+                  // domain: ".luster.network",
                 });
               } catch (error) {
                 const err = error.response
@@ -109,8 +109,8 @@ const login = ({redirectType}) => {
                     />
                 
                     <input 
-                    type="submit" 
-                    className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value="Login" />
+                      type="submit" 
+                      className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b hover:cursor-pointer from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value={`${loading?"Loading..." : "Login"}`} />
                 </form>
                 {
                   (loginErr) &&

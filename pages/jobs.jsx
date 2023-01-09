@@ -22,7 +22,7 @@ const JobsPage = ({posts}) => {
     const [dataArr, setDataArr] = useState(posts.data);
     const [loading, setLoading] = useState(false);
 
-    console.log("1234")
+    // console.log("1234")
 
     // useEffect(()=>async ()=>{
     //     setLoading(true);

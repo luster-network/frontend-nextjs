@@ -24,7 +24,7 @@ const eligibility = () => {
           const data = {
             Email: email,
             Level: level,
-            Lxperience:experience,
+            Experience:experience,
           }
           setLoading(true)
 
@@ -32,7 +32,7 @@ const eligibility = () => {
             router.push("/register");
           }, 6000)
   
-          await axios.post('https://sheet.best/api/sheets/3dd7709e-8158-4d2b-be99-9760133e85fa',data).then((response)=>{
+          await axios.post('https://sheet.best/api/sheets/3965a7b0-fac0-4c47-a2d3-5648c4b16f7f',data).then((response)=>{
             // console.log(response);
             setEmail("");
             setExperience(0)

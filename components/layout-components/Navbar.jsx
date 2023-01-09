@@ -22,7 +22,7 @@ const Header = () => {
         setLoginStatus(true)
       }
     }
-  },[])
+  },[cookies.token])
 
 
   const [active, setActive] = useState(false);
@@ -105,7 +105,7 @@ const Header = () => {
                               
                   { open &&
                     <div className="bg-gray-900 absolute right-4 shadow-lg top-8 w-[153px] rounded-lg py-1">
-                      <div onClick={()=>logout()} className="flex flex-row px-3 py-1 hover:bg-gray-100 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
+                      <div onClick={()=>logout()} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
                     </div>
                   }
                             
