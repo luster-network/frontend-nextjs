@@ -20,7 +20,7 @@ const Landing = () => {
           Register
         </Link>
         <Link 
-          href='/' 
+          href='/eligibility' 
           className='h-[4rem] md:ml-3 md:px-3 text-xl my-2 flex font-semibold border-transparent rounded-lg items-center justify-center'
         >
           <BsSearch className="mr-2"/>
