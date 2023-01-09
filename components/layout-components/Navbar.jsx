@@ -106,9 +106,9 @@ const Header = () => {
                               
                   { open &&
                     <div className="bg-gray-900 text-sm md:text-lg absolute right-4 shadow-lg top-8 w-[153px] rounded-lg py-1">
-                      <div onClick={()=>router.push("/")} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><AiFillHome className="h-6 mr-2" /> Home page</div>
-                      <div onClick={()=>router.push("/dashboard")} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdOutlineSpaceDashboard className="h-6 mr-2" /> Dashboard</div>
-                      <div onClick={()=>logout()} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
+                      <div onClick={()=>{router.push("/"); setOpen(!open)}} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><AiFillHome className="h-6 mr-2" /> Home page</div>
+                      <div onClick={()=>{router.push("/dashboard"); setOpen(!open)}} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdOutlineSpaceDashboard className="h-6 mr-2" /> Dashboard</div>
+                      <div onClick={()=>{logout(); setOpen(!open)}} className="flex flex-row px-3 py-1 hover:bg-indigo-800 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
                     </div>
                   }
                             

@@ -38,7 +38,7 @@ const Sidebar = ({}) => {
 
         <div
           onClick={() => {router.push("/dashboard")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${router.pathname==="/dashboard" && "border-gray-900 font-semibold"} border-l-4 border-transparent`} 
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${router.pathname==="/dashboard" ?"border-gray-900 font-semibold" : "border-transparent"} border-l-4`} 
         >
           <span>
              <MdOutlineSpaceDashboard className={`nav-icon font-semibold`} /> 
@@ -54,7 +54,7 @@ const Sidebar = ({}) => {
 
         <div
           onClick={() => {router.push("/dashboard/jobs")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="jobs" && "border-gray-900 font-semibold"} border-l-4 border-transparent`}
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="jobs" ? "border-gray-900 font-semibold" : "border-transparent"} border-l-4`}
         >
           <span>
             <BsBriefcase className="nav-icon font-bold" />
@@ -70,7 +70,7 @@ const Sidebar = ({}) => {
 
         <div
           onClick={() => {router.push("/dashboard/internships")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="internships" && "border-gray-900 font-semibold"} border-l-4 border-transparent `}
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="internships" ? "border-gray-900 font-semibold" : "border-transparent"} border-l-4 `}
         >
           <span className={``} >
             <BsBriefcase className="nav-icon font-semibold" />
@@ -89,7 +89,7 @@ const Sidebar = ({}) => {
 
         <div
           onClick={() => {router.push("/dashboard/profile")}}
-          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="profile" && "border-gray-900 font-semibold"} border-l-4 border-transparent`}
+          className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 ${option==="profile" ? "border-gray-900 font-semibold" : "border-transparent"} border-l-4`}
         >
           <span className={``}>
             <AiOutlineUser className="nav-icon font-semibold" />
