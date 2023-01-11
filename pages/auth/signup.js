@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useCookies } from 'react-cookie';
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import {FcGoogle} from "react-icons/fc"
 const INITIAL_COUNT = 600;
 
 const Signup = () => {
@@ -193,6 +194,14 @@ const Signup = () => {
     }
   };
 
+  const googleSignup = async (e) => {
+    //setLoading(true);
+    e.preventDefault()
+    const response = await Axios.get("https://api.cryptonaukri.com/api/v1/user/googleSignup?client=localhost");
+    console.log(response);
+    window.location.replace(response.data.reDirectURL)
+  }
+
   return (
    <div className='min-h-[100vh] flex bg-[#0B0D21]'>
       
@@ -219,7 +228,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='First Name '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
                 <input
                   value={lastName}
@@ -229,7 +238,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='Last Name '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
 
@@ -242,7 +251,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='Email '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
                 <input
                   value={phoneNumber}
@@ -252,7 +261,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='Mobile Number'
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
 
@@ -265,7 +274,7 @@ const Signup = () => {
                   className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='City '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
 
@@ -278,7 +287,7 @@ const Signup = () => {
                   className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='password'
                   placeholder='Password'
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
               <br />
@@ -299,6 +308,12 @@ const Signup = () => {
                   Sign Up
                 </button>
               )}
+              <button
+                  onClick={googleSignup}
+                  className='p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto flex items-center justify-center'
+                >
+                  <FcGoogle  className='mx-2'/> continue with google
+                </button>
               <div className='text-center'>
               <Link href='/auth/login' className='text-blue-400 text-md font-semibold'>
                 Exsisting User ? Sign-In
@@ -331,7 +346,7 @@ const Signup = () => {
                     className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                     type='text'
                     placeholder='OTP'
-                    autocomplete='do-not-autofill'
+                    autoComplete='do-not-autofill'
                   />
                 </div>
                 {loading ? (

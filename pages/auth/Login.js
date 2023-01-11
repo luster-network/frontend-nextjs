@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useCookies } from 'react-cookie';
 
-const login = ({redirectType}) => {
+const Login = ({redirectType}) => {
     const [loading, setLoading] = useState(false) 
     const [userInfo, setUserInfo] = useState({
         email : "",
@@ -124,4 +124,4 @@ const login = ({redirectType}) => {
 }
 
 
-export default login
+export default Login
