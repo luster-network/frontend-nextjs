@@ -13,7 +13,7 @@ const Google = () => {
   const [loading, setLoading] = useState(false);
     const API = "https://api.cryptonaukri.com";
     const sendBackend = async (code) => {
-        const response = await Axios.get(`${API}/api/v1/user/googleUserInfo?code=${code}&client=localhost`);
+        const response = await Axios.get(`${API}/api/v1/user/googleUserInfo?code=${code}&client=luster.network`);
 
           const data = response.data;
 
