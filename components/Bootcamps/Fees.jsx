@@ -12,21 +12,21 @@ const Fees = () => {
                 <div className='flex flex-col  md:flex-row my-20 items-center justify-center'>
 
                     <div className='items-center shadow-md shadow-white rounded-[15px] py-8 pt-8 px-8'>
-                        <div className='text-3xl md:text-5xl font-bold mb-1'>60% discount !</div>
+                        <div className='text-3xl md:text-5xl font-bold mb-1'>₹30,000</div>
                         <div className='h-[2px] m-auto bg-blue-300 w-[13rem]'></div>
-                        <p className='text-[16px] md:text-[24px] mb-2 mt-8'><b>Original fee:</b> ₹1,00,000</p>
-                        <p className='text-[16px] md:text-[24px] my-2'><b>Upfront fee:</b> ₹40,000</p>
+                        <p className='text-[16px] md:text-[24px] mb-2 mt-8'><b></b>For Bootcamp</p>
+                        {/* <p className='text-[16px] md:text-[24px] my-2'><b>Upfront fee:</b> ₹40,000</p> */}
                     </div>
 
 
-                    <p className='mx-12 text-2xl mt-12 md:mt-6 font-semibold text-gray-300 border-b-2'>OR</p>
+                    <p className='mx-12 text-2xl mt-12 md:mt-6 font-semibold text-gray-300 border-b-2'>AND</p>
 
 
                     <div className='items-center shadow-md shadow-white rounded-[15px] py-8 pt-8 px-8'>
-                    <div className='text-2xl md:text-4xl font-bold mb-1'>Pay after placement !</div>
-                    <div className='h-[2.6px] m-auto bg-blue-300 w-[13rem]'></div>
-                    <p className='text-[16px] md:text-[24px] mb-2 mt-8'>₹<b>10K : </b>Registration fee </p>
-                    <p className='text-[16px] md:text-[24px] my-2'>₹<b>90K : </b>Pay after placement</p>
+                    <div className='text-2xl md:text-4xl font-bold mb-1'>Get 50% Cashback !</div>
+                    <div className='h-[2.6px] m-auto bg-blue-300 w-[17rem]'></div>
+                    <p className='text-[16px] md:text-[24px] mb-2 mt-8'>After <b>getting placed</b></p>
+                    {/* <p className='text-[16px] md:text-[24px] my-2'>₹<b>90K : </b>Pay after placement</p> */}
                     </div>
                 </div>
 
