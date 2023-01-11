@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useCookies } from 'react-cookie';
+import {FcGoogle} from "react-icons/fc"
 
 const login = ({redirectType}) => {
     const [loading, setLoading] = useState(false) 
@@ -13,6 +14,12 @@ const login = ({redirectType}) => {
     const [loginErr, setLoginErr] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const googleSignUp = async(e) => {
+      e.preventDefault()
+      const response = await axios.get(`https://api.cryptonaukri.com/api/v1/user/googleSignup?client=luster.network`);
+      console.log(response);
+      window.location.replace(response.data.reDirectURL) 
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -55,7 +62,7 @@ const login = ({redirectType}) => {
                 setCookie("token", response.headers.authorization, {
                   expires: expireDate,
                   path: "/",
-                  // domain: ".luster.network",
+                  domain: ".luster.network",
                 });
               } catch (error) {
                 const err = error.response
@@ -113,6 +120,13 @@ const login = ({redirectType}) => {
                     <input 
                       type="submit" 
                       className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b hover:cursor-pointer from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value={`${loading?"Loading..." : "Login"}`} />
+                      <h1 className='text-blue-400 text-md font-semibold mx-auto'>OR</h1>
+                      <button
+                          onClick={googleSignUp}
+                          className='p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto flex items-center justify-center'
+                        >
+                          <FcGoogle className='mx-3'/> Google login
+                      </button>
                 </form>
                 {
                   (loginErr) &&
