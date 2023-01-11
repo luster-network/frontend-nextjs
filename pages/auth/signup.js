@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useCookies } from 'react-cookie';
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import {FcGoogle} from "react-icons/fc"
 const INITIAL_COUNT = 600;
 
 const Signup = () => {
@@ -55,7 +56,12 @@ const Signup = () => {
     }
   }, []);
 
-  //console.log(process.env.REACT_APP_PRODUCTION_API_ENDPOINT);
+  const googleSignUp = async(e) => {
+    e.preventDefault()
+    const response = await Axios.get(`https://api.cryptonaukri.com/api/v1/user/googleSignup?client=luster.network`);
+    console.log(response);
+    window.location.replace(response.data.reDirectURL) 
+  }
 
   const handleSendOtp = async (event) => {
     event.preventDefault();
@@ -297,8 +303,15 @@ const Signup = () => {
                   className='p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto'
                 >
                   Sign Up
-                </button>
+                </button>                
               )}
+              <h1 className='text-blue-400 text-md font-semibold mx-auto'>OR</h1>
+              <button
+                  onClick={googleSignUp}
+                  className='p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto flex items-center justify-center'
+                >
+                  <FcGoogle className='mx-3'/> Continue with google
+              </button>
               <div className='text-center'>
               <Link href='/auth/login' className='text-blue-400 text-md font-semibold'>
                 Exsisting User ? Sign-In
