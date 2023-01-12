@@ -107,7 +107,7 @@ const SolanaCurriculum = () => {
             </div>
 
             <div className='items-center text-xl my-3 md:mr-12 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>10+</p>
+                <p className='text-[#006DF6] font-semibold mb-2'>7+</p>
                 <p className='font-semibold'>WEB3 Projects</p>
             </div>
 
