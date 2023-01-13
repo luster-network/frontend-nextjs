@@ -58,7 +58,7 @@ const Signup = () => {
 
   const googleSignUp = async(e) => {
     e.preventDefault()
-    const response = await Axios.get(`https://api.cryptonaukri.com/api/v1/user/googleSignup?client=luster.network`);
+    const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/googleSignup?client=luster.network`);
     console.log(response);
     window.location.replace(response.data.reDirectURL) 
   }
@@ -121,7 +121,7 @@ const Signup = () => {
       setLoading(true);
       setSignUpError();
       try {
-        const response = await fetch(`https://api.cryptonaukri.com/api/v1/user/signup`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/signup`, {
           method: 'POST',
           mode : "cors",
           headers: {
@@ -153,7 +153,7 @@ const Signup = () => {
         }
         if (data.userAdded === true) {
           try {
-            const response = await Axios.post(`https://api.cryptonaukri.com/api/v1/user/login`, {
+            const response = await Axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/login`, {
               email,
               password,
             });

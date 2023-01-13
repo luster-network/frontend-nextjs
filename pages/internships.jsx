@@ -26,7 +26,7 @@ const InternshipPage = ({posts}) => {
 
     // useEffect(()=>async ()=>{
     //     setLoading(true);
-    //     const response = await Axios.get(`https://api.cryptonaukri.com/api/v1/internship/findInternship`)
+    //     const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/internship/findInternship`)
     //     .then((res)=>{
     //         //console.log(res);
     //         const resp = res.data;
