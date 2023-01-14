@@ -62,7 +62,7 @@ const login = ({redirectType}) => {
                 setCookie("token", response.headers.authorization, {
                   expires: expireDate,
                   path: "/",
-                  domain: ".luster.network",
+                  // domain: ".luster.network",
                 });
               } catch (error) {
                 const err = error.response
