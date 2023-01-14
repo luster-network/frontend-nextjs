@@ -62,7 +62,7 @@ const Jobcard = () => {
           <div
             className={`text-xs font-medium uppercase tracking-wider rounded-lg bg-opacity-50`}>
             <div className=''>
-                <button onClick={()=> {Router.push(`/jobapplication?id=${job._id}&type=job`)}} className="px-3 py-2  border border-[#003979] rounded-md bg-slate-800 hover:bg-indigo-800">Details</button>
+                <button onClick={()=> {router.push(`/jobapplication?id=${job._id}&type=job`)}} className="px-3 py-2  border border-[#003979] rounded-md bg-slate-800 hover:bg-indigo-800">Details</button>
             </div>
           </div>
           </td>
