@@ -43,9 +43,9 @@ const Header = () => {
   }
 
   const logout = () => {
-   router.push("/")
    removeCookie('token')
    setLoginStatus(false)
+   router.push("/")
   }
   console.log(loginStatus)
   return(
