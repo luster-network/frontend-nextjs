@@ -46,19 +46,6 @@ const Signup = () => {
   const router = useRouter()
   var API = process.env.REACT_APP_API_ENDPOINT;
 
-  useEffect(() => {
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var code = url.searchParams.get('code');
-    var redirectType = url.searchParams.get('redirecttype');
-    var redirectid = url.searchParams.get('redirectid');
-
-    if (code) {
-      setCuoponCode(code);
-    }
-  }, []);
-
-  //console.log(process.env.REACT_APP_PRODUCTION_API_ENDPOINT);
 
   const handleSendOtp = async (event) => {
     event.preventDefault();
@@ -196,7 +183,6 @@ const Signup = () => {
     }
   };
 
-<<<<<<< Updated upstream
   const googleSignup = async (e) => {
     //setLoading(true);
     e.preventDefault()
@@ -204,8 +190,6 @@ const Signup = () => {
     console.log(response);
     window.location.replace(response.data.reDirectURL)
   }
-=======
->>>>>>> Stashed changes
 
   return (
    <div className='min-h-[100vh] flex bg-[#0B0D21]'>

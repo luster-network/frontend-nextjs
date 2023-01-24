@@ -11,7 +11,7 @@ const Layout = ({children}) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Luster.network is a job portal for Blockchain developers where Blockchain developers jobs in India are shared by Blockchain startups."
+          content="Luster is upskilling web3 enthusiasts to web3 developers and providing the proof-of-experience."
         />
         <meta
           content="ethereum workshops"

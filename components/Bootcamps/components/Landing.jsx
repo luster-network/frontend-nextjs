@@ -32,7 +32,7 @@ const Landing = () => {
       <div className='flex flex-col border-3 items-center text-center justify-center md:my-16 py-12'>
         <p className='font-bold text-5xl text-[#006DF6]'>Connect for free consultation</p>
         <p className='text-2xl my-8'>Schedule online meet now!</p>
-        <a href="https://calendly.com/cryptonaukri/pradnyashil" target="_blank" className='border-2 mt-1 text-xl border-[#003979] text-[#006DF6] font-semibold rounded-md px-12 py-2 inline-block hover:bg-[#006DF6] hover:text-white hover:cursor-pointer'>Schedule now !</a>
+        <a href="https://calendly.com/lusternetwork/pradnyashil" target="_blank" className='border-2 mt-1 text-xl border-[#003979] text-[#006DF6] font-semibold rounded-md px-12 py-2 inline-block hover:bg-[#006DF6] hover:text-white hover:cursor-pointer'>Schedule now !</a>
       </div>
 
     </div>

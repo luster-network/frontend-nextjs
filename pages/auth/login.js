@@ -2,8 +2,9 @@ import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useCookies } from 'react-cookie';
+import {FcGoogle} from "react-icons/fc"
 
-const Login = ({redirectType}) => {
+const login = ({redirectType}) => {
     const [loading, setLoading] = useState(false) 
     const [userInfo, setUserInfo] = useState({
         email : "",
@@ -13,6 +14,12 @@ const Login = ({redirectType}) => {
     const [loginErr, setLoginErr] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const googleSignUp = async(e) => {
+      e.preventDefault()
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/googleSignup?client=luster.network`);
+      console.log(response);
+      window.location.replace(response.data.reDirectURL) 
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -23,7 +30,7 @@ const Login = ({redirectType}) => {
             const email = userInfo.email
             const password = userInfo.password
           try {
-            const response = await axios.post(`https://api.cryptonaukri.com/api/v1/user/login`, {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/login`, {
               email,
               password,
             }).catch(function(error){
@@ -55,7 +62,7 @@ const Login = ({redirectType}) => {
                 setCookie("token", response.headers.authorization, {
                   expires: expireDate,
                   path: "/",
-                  domain: ".luster.network",
+                  // domain: ".luster.network",
                 });
               } catch (error) {
                 const err = error.response
@@ -69,7 +76,7 @@ const Login = ({redirectType}) => {
             }
     
             console.log(data);
-            router.push('/')
+            router.push('/dashboard')
           } catch (error) {
             console.log(error)
           }
@@ -94,6 +101,7 @@ const Login = ({redirectType}) => {
                     onChange={({ target }) =>
                         setUserInfo({ ...userInfo, email: target.value })
                     }
+                    required={true}
                     type="email"
                     placeholder="john@email.com"
                     className="p-3 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl"
@@ -103,14 +111,22 @@ const Login = ({redirectType}) => {
                     onChange={({ target }) =>
                         setUserInfo({ ...userInfo, password: target.value })
                     }
+                    required={true}
                     type="password"
                     placeholder="********"
                     className="p-3 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl"
                     />
                 
                     <input 
-                    type="submit" 
-                    className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value="Login" />
+                      type="submit" 
+                      className="p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b hover:cursor-pointer from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto" value={`${loading?"Loading..." : "Login"}`} />
+                      <h1 className='text-blue-400 text-md font-semibold mx-auto'>OR</h1>
+                      <button
+                          onClick={googleSignUp}
+                          className='p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto flex items-center justify-center'
+                        >
+                          <FcGoogle className='mx-3'/> Google login
+                      </button>
                 </form>
                 {
                   (loginErr) &&
@@ -124,4 +140,4 @@ const Login = ({redirectType}) => {
 }
 
 
-export default Login
+export default login

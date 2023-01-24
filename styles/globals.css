@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .nav-icon{
+      @apply w-6 h-6 cursor-pointer   /*to apply tailwindCSS property*/
+  }
+}  
+
 html,
 body {
   padding: 0;

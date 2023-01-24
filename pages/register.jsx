@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {MdOutlineArrowBackIosNew} from "react-icons/md"
+// import {MdOutlineArrowBackIosNew} from "react-icons/md"
 
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -60,7 +60,7 @@ const Register = () => {
  
     return (
       <>
-        <form className="pt-16 w-full text-[14px]">
+        <div className="pt-16 w-full text-[14px]">
 
         <div className="w-full flex flex-col items-center justify-center py-12 ">
             <h1 className="text-3xl md:text-5xl px-3 mt-3 text-center font-semibold mb-2">
@@ -70,7 +70,7 @@ const Register = () => {
               web3 Bootcamp
             </h1>
         < div className=" mt-8 rounded-2xl">
-         <div className='w-full md:w-[48rem] py-16 flex flex-col bg-gray-800 items-center shadow-2xl rounded-2xl px-10 md:px-0'>
+         <form onSubmit={handleSubmit} className='w-full md:w-[48rem] py-16 flex flex-col bg-gray-800 items-center shadow-2xl rounded-2xl px-10 md:px-0'>
 
             <div className='my-4 '> 
               <p className='ml-2 mb-2 text-[16px]'>Your Name</p>
@@ -80,19 +80,19 @@ const Register = () => {
 
             <div className='my-4 '>
              <p className='ml-2 mb-2 text-[16px]'>Your Email</p>
-             <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
+             <input onChange={(e) => setEmail(e.target.value)} required={true} value={email} type="email" className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
             </div>
             {!notsubmitted && !email ? <span className='text-red-600 mb-3'>Please enter your e-mail</span> : null}
         
              <div className='my-4'>
                <p className='ml-2 mb-2 text-[16px]'>Organisation/Institute</p>
-               <input onChange={(e) => setOrg(e.target.value)} value={org} className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
+               <input required={true} onChange={(e) => setOrg(e.target.value)} value={org} className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
              </div>
              {!notsubmitted && !org ? <span className='text-red-600 mb-3'>Please enter your organisation</span> : null}
 
             <div className='my-4 '>
               <p className='ml-2 mb-2 text-[16px]'>Phone Number</p>
-              <input onChange={(e) => setNumber(e.target.value)} type="number" value={number} className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
+              <input onChange={(e) => setNumber(e.target.value)} required={true} type="number" value={number} className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
             </div>
             {!notsubmitted && !number ? <span className='text-red-600 mb-3'>Please enter your contact number</span> : null}
         
@@ -138,12 +138,12 @@ const Register = () => {
           </div>
        
 
-        <button onClick={handleSubmit} className={`border-2 w-[12rem] mr-4 border-[#003979] font-semibold rounded-full px-12 py-3 mt-7 inline-block hover:bg-[#1B2430] hover:text-white`}>SUBMIT</button>
-        </div>
+        <button type="submit" className={`border-2 w-[12rem] mr-4 border-[#003979] font-semibold rounded-full px-12 py-3 mt-7 inline-block hover:bg-[#1B2430] hover:text-white`}>SUBMIT</button>
+        </form>
         </div>
 
         </div>
-        </form>     
+        </div>     
         </>
     )
 }
