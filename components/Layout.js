@@ -13,6 +13,9 @@ const Layout = ({children}) => {
           name="description"
           content="Luster is upskilling web3 enthusiasts to web3 developers and providing the proof-of-experience."
         />
+        <meta
+          content="ethereum workshops"
+        />
       </Head>
       <div className='bg-gradient-to-br from-indigo-900 via-gray-900 to-slate-900 text-white overflow-x-hidden'>
         <Navbar />
