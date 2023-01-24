@@ -14,7 +14,9 @@ const Signup = () => {
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [location, setLocation] = useState('');
-  const [cuoponCode, setCuoponCode] = useState('');
+  const [user, setUser] = useState('')
+  const [couponCode, setCouponCode] = useState('');
+  const [organization, setOrganization] = useState('')
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
   const [step, setStep] = useState(1);
@@ -194,6 +196,7 @@ const Signup = () => {
     }
   };
 
+<<<<<<< Updated upstream
   const googleSignup = async (e) => {
     //setLoading(true);
     e.preventDefault()
@@ -201,6 +204,8 @@ const Signup = () => {
     console.log(response);
     window.location.replace(response.data.reDirectURL)
   }
+=======
+>>>>>>> Stashed changes
 
   return (
    <div className='min-h-[100vh] flex bg-[#0B0D21]'>
@@ -290,8 +295,38 @@ const Signup = () => {
                   autoComplete='do-not-autofill'
                 />
               </div>
-              <br />
-
+              <div className='mx-auto text-neutral-50 text-lg flex gap-3 items-center' onChange={(e) => setUser(e.target.value)}>
+                <input type="radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" value="developer" name="gender" /> developer
+                <input type="radio" className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600' value="business" name="gender" /> business
+              </div>
+              <div className='flex flex-col gap-4'>
+                {
+                  (user === 'business') &&
+                  <>
+                  <input
+                  value={couponCode}
+                  onChange={(e) => {
+                    setCouponCode(e.target.value);
+                  }}
+                  className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
+                  type='text'
+                  placeholder='organization name'
+                  autoComplete='do-not-autofill'
+                  />
+                  <input
+                  value={couponCode}
+                  onChange={(e) => {
+                    setCouponCode(e.target.value);
+                  }}
+                  className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
+                  type='text'
+                  placeholder='coupon code'
+                  autoComplete='do-not-autofill'
+                  />
+                  
+                  </>
+                }
+              </div>
               {loading ? (
                 <button
                   type='button'
