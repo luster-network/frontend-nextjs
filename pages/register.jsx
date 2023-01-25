@@ -15,6 +15,7 @@ const Register = () => {
     const [org, setOrg] = useState('');
     const [number, setNumber] = useState();
     const [exp, setExp] = useState('Beginner');
+    const [bootcamp, setBootcamp] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [referral, setReferral] = useState('');
@@ -34,6 +35,7 @@ const Register = () => {
           City: city,
           State: state,
           Referral: referral,
+          Registering_For: bootcamp
         }
 
         axios.post('https://sheet.best/api/sheets/62f3c87d-f9a6-465d-bc16-6d5904f3857e',data).then((response)=>{
@@ -46,6 +48,7 @@ const Register = () => {
           setOrg("");
           setState("");
           setReferral("");
+          setBootcamp("");
           setNotSubmitted(false);
           toast.success("Form submitted successfully!");
           router.push("/");
@@ -136,6 +139,22 @@ const Register = () => {
             <p className='ml-2 mb-2 text-[16px]'>Referral</p>
             <input onChange={(e) => setReferral(e.target.value)} value={referral} className=' bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md' />
           </div>
+
+          <div className='my-4 '>
+                <p className='ml-2 mb-2 text-[16px]'>Registering for bootcamp:</p>
+                <select
+                  defaultValue="Experience Level"
+                  onChange={(e) => setBootcamp(e.target.value)}
+                  value={bootcamp}
+                  placeholder="Experiance"
+                  className=" bg-gray-900 px-6 h-[45px] w-[15rem] md:w-[24rem] border outline-1 outline-blue-200 border-blue-900 rounded-md"
+                >
+                  <option value="Select bootcamp">Select bootcamp</option>
+                  <option value="Solana">Solana</option>
+                  <option value="Ethereum">Ethereum</option>
+                  <option value="Both">Both (Solana and Ethereum)</option>
+                </select>
+            </div>
        
 
         <button type="submit" className={`border-2 w-[12rem] mr-4 border-[#003979] font-semibold rounded-full px-12 py-3 mt-7 inline-block hover:bg-[#1B2430] hover:text-white`}>SUBMIT</button>
