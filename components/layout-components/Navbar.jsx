@@ -129,7 +129,7 @@ const Header = () => {
 
                         <div  className='cursor-pointer  ml-4'>
                         <Link href="/auth/signup">
-                          <div className="flex items-center ">
+                          <div className="flex items-center border border-white px-4 py-1 rounded-md hover:bg-white hover:text-black">
                             Signup
                           </div>
                           </Link> 

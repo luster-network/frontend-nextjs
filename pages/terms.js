@@ -2,11 +2,11 @@ import React from "react";
 
 const Terms = () => {
   return (
-    <div className="bg-gray-800 pt-16 h-screen">
-      <div className="flex flex-col items-center justify-center bg-gray-800 text-white p-4 max-w-7xl m-auto">
-        <div className="mt-8 text-2xl font-bold tracking-wider underline underline-offset-4">
+    <div className="bg-gray-800 ">
+      <div className="flex flex-col items-center h-screen justify-center bg-gray-800 text-white p-4 max-w-7xl m-auto">
+        <p className="mt-8 text-2xl font-bold tracking-wider underline underline-offset-4">
           Terms &amp; Conditions
-        </div>
+        </p>
         <div className="mt-5 text-lg text-center px-20">
           <p>
             At CryptoNaukri, accessible from{" "}
