@@ -9,10 +9,7 @@ const AboutUS = () => {
         </div>
         <div className="mt-5 text-lg text-center px-20">
           <p>
-            We are an ecosystem for Blockchain Developers where they can learn
-            Blockchain development, can solve their problems using our community
-            and can get the jobs using our job portal in Blockchain space
-            startups and MNCs.
+          Luster upskills web3 enthusiasts to web3 developers by conducting cohort-based live learning bootcamps on Ethereum, Solana, Hyperledger and Smart Contract auditing, etc.
           </p>
           <p>
             If you have any query regrading Site, Advertisement and any other

@@ -1,5 +1,6 @@
 import React from "react";
 import {FaLinkedinIn, FaInstagram, FaTwitter, FaYoutube} from 'react-icons/fa'
+import Link from "next/link";
 
 const Footer = () => {
 
@@ -8,10 +9,10 @@ const Footer = () => {
           <div className="flex flex-col md:justify-between md:flex-row items-center py-8 md:px-32">
             <div className="flex flex-col md:items-start">
               <b className="mb-3 text-lg">About</b>
-              <a href="/aboutus" target="_blank">About Us</a>
-              <a href="/terms" target="_blank" className="my-1">Terms and Conditions</a>
-              <a href="/privacy" target="_blank">Privacy</a>
-              <a href="https://web3hack.tech/" target="_blank">Promotions and events</a>
+              <Link href="/aboutus" >About Us</Link>
+              <Link href="/terms" className="my-1">Terms and Conditions</Link>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="https://web3hack.tech/">Promotions and events</Link>
             </div>
 
             <div className="flex flex-col my-8 md:my-0 md:items-start">

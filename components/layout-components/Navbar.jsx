@@ -5,6 +5,7 @@ import {MdOutlineSpaceDashboard, MdLogout, MdBusiness} from 'react-icons/md';
 import {AiFillCaretDown, AiOutlineUser, AiFillHome} from 'react-icons/ai'
 import {useRouter} from "next/router"
 import Link from 'next/link'
+import Image from "next/image";
 import { useCookies } from 'react-cookie';
 
 const Header = () => {
@@ -51,14 +52,13 @@ const Header = () => {
   return(
     <nav className='w-[100%] top-0 shadow-md bg-neutral-900 bg-opacity-70 backdrop-blur-xl fixed text-[20px]'>
       <div className="py-5 sm:px-5 flex flex-row items-center justify-between px-3 md:px-24 m-auto">
-          <div onClick={gotohome} className="cursor-pointer">
-            <p className='text-xl md:text-4xl font-semibold'>LUSTER</p>
+          <div onClick={gotohome} className="cursor-pointer flex items-center gap-2">
+            <Image src='/assets/logo.png' height={50} width={50}/> <h1 className="font-semibold italic text-2xl">LUSTER</h1>
           </div>
           <div>
             <div className={`md:none ${active? 'show':'hide'} `}>
                 <div className="absolute top-20 left-0 right-0 w-full px-2 rounded-b-md">
                     <ul className="bg-gray-900 flex flex-col items-center text-lg rounded-md transition-all">
-                        <li className="p-1 cursor-pointer "><a href="https://community.cryptonaukri.com/" target='_blank' className="">Community</a></li>
                         <li className="p-1 cursor-pointer "><a href="#bootcamps" className="">Bootcamps</a></li>
                         <li className="p-1 cursor-pointer "><Link href="/jobs" className="">Jobs</Link></li>
                         <li className="p-1 cursor-pointer "><Link href="/internships" className="">Internships</Link></li>
@@ -68,10 +68,6 @@ const Header = () => {
             </div>
             <div className="hidden md:block" >
                   <ul className="flex gap-8">
-                    <li className="cursor-pointer  hover:underline hover:underline-offset-4">
-                      <a href="https://community.cryptonaukri.com/" target='_blank' className="">Community</a>
-                    </li>
-
                     <li className="cursor-pointer  hover:underline hover:underline-offset-4">
                       <a href={`${router.pathname==="/"?"#bootcamp" : "/"}`} className="">Bootcamps</a>
                     </li>
