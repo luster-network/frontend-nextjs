@@ -6,7 +6,7 @@ import Axios from 'axios';
 export async function getStaticProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
-    const res = await fetch(`https://api.cryptonaukri.com/api/v1/jobs/findJob`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
     const posts = await res.json()
   
     // By returning { props: { posts } }, the Blog component
@@ -26,7 +26,7 @@ const JobsPage = ({posts}) => {
 
     // useEffect(()=>async ()=>{
     //     setLoading(true);
-    //     const response = await Axios.get(`https://api.cryptonaukri.com/api/v1/jobs/findJob`)
+    //     const response = await Axios.get(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/jobs/findJob`)
     //     .then((res)=>{
     //         const resp = res.data;
     //         console.log(resp.data);

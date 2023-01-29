@@ -12,7 +12,7 @@ const authOptions = {
       },
       async authorize({username, password}, _req) {
         try {
-          const {data, error} = await fetch("https://api.cryptonaukri.com/api/v1/users/login")
+          const {data, error} = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/users/login`)
           if (!data?.user || error) {
             return null
           }

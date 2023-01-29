@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useCookies } from 'react-cookie';
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import {FcGoogle} from "react-icons/fc"
 const INITIAL_COUNT = 600;
 
 const Signup = () => {
@@ -13,7 +14,9 @@ const Signup = () => {
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [location, setLocation] = useState('');
-  const [cuoponCode, setCuoponCode] = useState('');
+  const [user, setUser] = useState('')
+  const [couponCode, setCouponCode] = useState('');
+  const [organization, setOrganization] = useState('')
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
   const [step, setStep] = useState(1);
@@ -43,19 +46,6 @@ const Signup = () => {
   const router = useRouter()
   var API = process.env.REACT_APP_API_ENDPOINT;
 
-  useEffect(() => {
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var code = url.searchParams.get('code');
-    var redirectType = url.searchParams.get('redirecttype');
-    var redirectid = url.searchParams.get('redirectid');
-
-    if (code) {
-      setCuoponCode(code);
-    }
-  }, []);
-
-  //console.log(process.env.REACT_APP_PRODUCTION_API_ENDPOINT);
 
   const handleSendOtp = async (event) => {
     event.preventDefault();
@@ -64,7 +54,7 @@ const Signup = () => {
     setOtp('');
     if (email && password && firstName && lastName && phoneNumber && location) {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/api/v1/user/otp?email=${email}`, {
+        const response = await fetch(`https://api.cryptonaukri.com/api/v1/user/otp?email=${email}`, {
           method: 'GET',
           mode: 'cors',
         })
@@ -172,7 +162,7 @@ const Signup = () => {
               localStorage.setItem('login', true);
             }
             
-            router.push('/dashboard')
+            router.push('/')
           } catch (error) {
             setSignUpError('Something went wrong. Try logging in')
             console.log(error)
@@ -192,6 +182,14 @@ const Signup = () => {
       }
     }
   };
+
+  const googleSignup = async (e) => {
+    //setLoading(true);
+    e.preventDefault()
+    const response = await Axios.get("https://api.cryptonaukri.com/api/v1/user/googleSignup?client=localhost");
+    console.log(response);
+    window.location.replace(response.data.reDirectURL)
+  }
 
   return (
    <div className='min-h-[100vh] flex bg-[#0B0D21]'>
@@ -219,7 +217,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='First Name '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
                 <input
                   value={lastName}
@@ -229,7 +227,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='Last Name '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
 
@@ -242,7 +240,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='Email '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
                 <input
                   value={phoneNumber}
@@ -252,7 +250,7 @@ const Signup = () => {
                   className='p-3 w-full md:basis-1/2 text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='Mobile Number'
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
 
@@ -265,7 +263,7 @@ const Signup = () => {
                   className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='text'
                   placeholder='City '
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
 
@@ -278,11 +276,41 @@ const Signup = () => {
                   className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                   type='password'
                   placeholder='Password'
-                  autocomplete='do-not-autofill'
+                  autoComplete='do-not-autofill'
                 />
               </div>
-              <br />
-
+              <div className='mx-auto text-neutral-50 text-lg flex gap-3 items-center' onChange={(e) => setUser(e.target.value)}>
+                <input type="radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" value="developer" name="gender" /> developer
+                <input type="radio" className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600' value="business" name="gender" /> business
+              </div>
+              <div className='flex flex-col gap-4'>
+                {
+                  (user === 'business') &&
+                  <>
+                  <input
+                  value={couponCode}
+                  onChange={(e) => {
+                    setCouponCode(e.target.value);
+                  }}
+                  className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
+                  type='text'
+                  placeholder='organization name'
+                  autoComplete='do-not-autofill'
+                  />
+                  <input
+                  value={couponCode}
+                  onChange={(e) => {
+                    setCouponCode(e.target.value);
+                  }}
+                  className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
+                  type='text'
+                  placeholder='coupon code'
+                  autoComplete='do-not-autofill'
+                  />
+                  
+                  </>
+                }
+              </div>
               {loading ? (
                 <button
                   type='button'
@@ -299,6 +327,12 @@ const Signup = () => {
                   Sign Up
                 </button>
               )}
+              <button
+                  onClick={googleSignup}
+                  className='p-3 text-neutral-50 bg-blue-500 bg-gradient-to-b from-[#0047F5] to-[#006DF6] rounded-3xl font-bold w-1/2 mx-auto flex items-center justify-center'
+                >
+                  <FcGoogle  className='mx-2'/> continue with google
+                </button>
               <div className='text-center'>
               <Link href='/auth/login' className='text-blue-400 text-md font-semibold'>
                 Exsisting User ? Sign-In
@@ -331,7 +365,7 @@ const Signup = () => {
                     className='p-3 w-[100%] text-neutral-50 bg-neutral-900 border-2 border-neutral-50 rounded-3xl'
                     type='text'
                     placeholder='OTP'
-                    autocomplete='do-not-autofill'
+                    autoComplete='do-not-autofill'
                   />
                 </div>
                 {loading ? (
