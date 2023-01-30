@@ -53,7 +53,7 @@ const Header = () => {
     <nav className='w-[100%] top-0 shadow-md bg-neutral-900 bg-opacity-70 backdrop-blur-xl fixed text-[20px]'>
       <div className="py-5 sm:px-5 flex flex-row items-center justify-between px-3 md:px-24 m-auto">
           <div onClick={gotohome} className="cursor-pointer flex items-center gap-2">
-            <Image src='/assets/logo.png' height={50} width={50}/> <h1 className="font-semibold italic text-2xl">LUSTER</h1>
+            <Image src='/assets/logo.png' height={50} width={50}/> <h1 className="font-semibold italic text-2xl hidden md:block">LUSTER</h1>
           </div>
           <div>
             <div className={`md:none ${active? 'show':'hide'} `}>
@@ -112,7 +112,7 @@ const Header = () => {
                   {/* <div onClick={()=>logout()} className="cursor-pointer ">Sign out</div> */}
                   </div>
                   :
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                         <div  className='cursor-pointer '>
                         <button>
                           <Link href="/auth/login">
@@ -123,9 +123,9 @@ const Header = () => {
                         </button>
                         </div> 
 
-                        <div  className='cursor-pointer  ml-4'>
+                        <div  className='cursor-pointer'>
                         <Link href="/auth/signup">
-                          <div className="flex items-center border border-white px-4 py-1 rounded-md hover:bg-white hover:text-black">
+                          <div className="flex items-center border border-white px-2 py-1 rounded-md hover:bg-white hover:text-black">
                             Signup
                           </div>
                           </Link> 
