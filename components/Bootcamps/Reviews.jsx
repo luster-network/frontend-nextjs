@@ -69,7 +69,7 @@ const Reviews = () =>{
          >
             {people.map((person,i) => (
                 <SwiperSlide key={i}>
-                    <div className='flex flex-col p-8 items-center border-2 border-white bg-[#0c0505] justify-center rounded-md mb-10'>
+                    <div className='flex flex-col p-8 items-center border-2 bg-gradient-to-br from-indigo-900 to-slate-900 border-white  justify-center rounded-md mb-10'>
                         <picture className='flex items-center justify-center'>
                         <img
                             src={person.image}
