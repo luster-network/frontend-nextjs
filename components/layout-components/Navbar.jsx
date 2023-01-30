@@ -125,11 +125,7 @@ const Header = () => {
 
                         <div  className='cursor-pointer'>
                         <Link href="/auth/signup">
-<<<<<<< Updated upstream
-                          <div className="flex items-center ">
-=======
                           <div className="flex items-center border border-white px-2 py-1 rounded-md hover:bg-white hover:text-black">
->>>>>>> Stashed changes
                             Signup
                           </div>
                           </Link> 
