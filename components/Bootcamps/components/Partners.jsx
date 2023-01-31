@@ -9,9 +9,6 @@ const Partners = () => {
     <div className='h-[2px] w-[18rem] bg-gray-300  mb-12'></div>
     <section className='flex flex-wrap justify-center gap-6 w-[75%] mx-auto'>
       <article>
-        <Image src='/assets/clueless.png' height={300} width={300}/>
-      </article>
-      <article>
         <Image src='/assets/sphereon.png' height={300} width={300}/>
       </article>
       <article>

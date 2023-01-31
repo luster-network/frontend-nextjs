@@ -39,8 +39,6 @@ const Fees = () => {
         </div>
     </div>
 
-    <p className='px-8 md:px-24 text-center mb-4 mt-24 text-5xl'>Whether you are a working professional or a student</p>
-    <p className='px-8 md:px-24 text-center text-5xl'>You can be in top 0.1% Web3 Developers !</p>
     </>
   )
 }

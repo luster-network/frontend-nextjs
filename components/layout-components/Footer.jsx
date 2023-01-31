@@ -25,13 +25,13 @@ const Footer = () => {
             <div>
               <b className='mt-4'>Connect with us:</b>
               <div className='flex justify-center my-2'>
-                  <a href='https://www.linkedin.com/company/cryptonaukri/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
+                  <a href='https://www.linkedin.com/company/lusternetwork/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
                       <FaLinkedinIn />
                   </a>
-                  <a href='https://www.instagram.com/cryptonaukri/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
+                  <a href='https://www.instagram.com/luster.network/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
                       <FaInstagram />
                   </a>
-                  <a href='https://twitter.com/CryptoNaukri' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
+                  <a href='https://twitter.com/lusterNetwork' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
                       <FaTwitter />
                   </a>
                   <a href='https://www.youtube.com/channel/UCj-OThZ-RvEXqmscW4SKLRg' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-white hover:text-black'>
