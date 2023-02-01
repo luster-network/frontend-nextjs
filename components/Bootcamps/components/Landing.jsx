@@ -12,7 +12,7 @@ const Landing = () => {
       <div className='pt-12 min-h-[95vh] flex flex-col items-center justify-center'>
           <div className='flex flex-col mb-4 md:mb-0 md:flex-row'>
             <p className='text-[#006DF6] m-0 text-[55px] font-bold'>
-              <span className='text-blue-800 m-0'>{router.pathname==="/bootcamps/solana"? "Solana" : "Ethereum"} </span>
+              <span className='text-neutral-100 m-0'>{router.pathname==="/bootcamps/solana"? "Solana" : "Ethereum"} </span>
               <span className='m-0'>Blockchain</span>
             </p>
           </div>
