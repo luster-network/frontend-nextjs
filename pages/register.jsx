@@ -30,7 +30,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      if(name && email && org && number && exp && city && state) {
+      if(name && email && number && exp && city && state) {
         
         const data = {
           Name: name,
@@ -53,7 +53,6 @@ const Register = () => {
           setNumber(0);
           setExp("Beginner");
           setCity("");
-          setOrg("");
           setState("");
           setReferral("");
           setBootcamp("");

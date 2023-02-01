@@ -104,22 +104,22 @@ const EthereumCurriculum = () => {
 
         <div className='flex flex-col md:flex-row items-center md:justify-center'>
             <div className='items-center text-xl my-3 text-center md:mr-12'>
-                <p className='text-[#006DF6] font-semibold mb-2'>250+</p>
+                <p className='text-neutral-100 font-semibold mb-2'>250+</p>
                 <p className='font-semibold'>Hours of learning</p>
             </div>
 
             <div className='items-center text-xl my-3 md:mr-12 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>10+</p>
+                <p className='text-neutral-100 font-semibold mb-2'>10+</p>
                 <p className='font-semibold'>WEB3 Projects</p>
             </div>
 
             <div className='items-center text-xl my-3 md:mr-12 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>100%</p>
+                <p className='text-neutral-100 font-semibold mb-2'>100%</p>
                 <p className='font-semibold'>Placement</p>
             </div>
 
             <div className='items-center text-xl my-3 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>50% cashback</p>
+                <p className='text-neutral-100 font-semibold mb-2'>50% cashback</p>
                 <p className='font-semibold flex items-center'>After placement ! <div className='text-green-600 text-2xl'><TiTick /></div> </p>
             </div>
 
