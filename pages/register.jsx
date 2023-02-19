@@ -170,6 +170,7 @@ const Register = () => {
                   <option value="Solana">Solana</option>
                   <option value="Ethereum">Ethereum</option>
                   <option value="Both">Both (Solana and Ethereum)</option>
+                  <option value="Both">Solana's mini bootcamp</option>
                 </select>
             </div>
           </form>}
