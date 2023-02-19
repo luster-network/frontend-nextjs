@@ -96,30 +96,30 @@ const EthereumCurriculum = () => {
   return (
     <div className='pt-8 mb-12'>
 
-        <h1 className='text-4xl md:text-6xl mb-16 text-[#006DF6] font-bold'>Curriculum</h1>
+        <h1 className='text-4xl md:text-6xl mb-16 font-bold'>Curriculum</h1>
         <div className='flex flex-col md:flex-row mb-12 md:justify-between items-center'>
             <p className='md:w-[80%] text-lg md:text-2xl'>Best in-class content by leading faculty and industry leaders in the form of live Sessions, 250+ hours of learning, 10+ Web3 projects, doubt solving...</p>
-            <a href='/Ethereum_Curriculum.pdf' download="Ethereum_Curriculum.pdf" ><button className='border-2 text-xl border-[#006DF6] m-0 hover:scale-125 transition duration-300 rounded-xl px-4 py-3 bg-[#006DF6] flex items-center text-white hover:cursor-pointer'>Curriculum <IoMdDownload className='ml-2'/></button></a>
+            <a href='/Ethereum_Curriculum.pdf' download="Ethereum_Curriculum.pdf" ><button className='h-[3rem] text-2xl transform transition duration-500 hover:scale-125 my-2 flex font-semibold border-transparent rounded-lg items-center w-[12rem] bg-gradient-to-r from-[#58AFEF] to-[#9374DC]  justify-center '>Curriculum <IoMdDownload className='ml-2'/></button></a>
         </div>
 
         <div className='flex flex-col md:flex-row items-center md:justify-center'>
             <div className='items-center text-xl my-3 text-center md:mr-12'>
-                <p className='text-[#006DF6] font-semibold mb-2'>250+</p>
+                <p className='text-neutral-100 font-semibold mb-2'>250+</p>
                 <p className='font-semibold'>Hours of learning</p>
             </div>
 
             <div className='items-center text-xl my-3 md:mr-12 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>10+</p>
+                <p className='text-neutral-100 font-semibold mb-2'>10+</p>
                 <p className='font-semibold'>WEB3 Projects</p>
             </div>
 
             <div className='items-center text-xl my-3 md:mr-12 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>100%</p>
+                <p className='text-neutral-100 font-semibold mb-2'>100%</p>
                 <p className='font-semibold'>Placement</p>
             </div>
 
             <div className='items-center text-xl my-3 text-center'>
-                <p className='text-[#006DF6] font-semibold mb-2'>50% cashback</p>
+                <p className='text-neutral-100 font-semibold mb-2'>50% cashback</p>
                 <p className='font-semibold flex items-center'>After placement ! <div className='text-green-600 text-2xl'><TiTick /></div> </p>
             </div>
 

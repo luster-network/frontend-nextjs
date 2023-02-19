@@ -1,6 +1,10 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 
 const Fees = () => {
+
+    const router = useRouter()
+
   return (
     <>
     <div className='flex flex-col py-12 md:mt-12 text-center min-h-[94vh] justify-center items-center'>
@@ -12,7 +16,7 @@ const Fees = () => {
                 <div className='flex flex-col  md:flex-row my-20 items-center justify-center'>
 
                     <div className='items-center shadow-md shadow-white rounded-[15px] py-8 pt-8 px-8'>
-                        <div className='text-3xl md:text-5xl font-bold mb-1'>₹30,000</div>
+                        <div className='text-3xl md:text-5xl font-bold mb-1'>{router.pathname==="/bootcamps/solana-mini"?"₹00.00":"₹30,000"}</div>
                         <div className='h-[2px] m-auto bg-blue-300 w-[13rem]'></div>
                         <p className='text-[16px] md:text-[24px] mb-2 mt-8'><b></b>For Bootcamp</p>
                         {/* <p className='text-[16px] md:text-[24px] my-2'><b>Upfront fee:</b> ₹40,000</p> */}
@@ -23,9 +27,9 @@ const Fees = () => {
 
 
                     <div className='items-center shadow-md shadow-white rounded-[15px] py-8 pt-8 px-8'>
-                    <div className='text-2xl md:text-4xl font-bold mb-1'>Get 50% Cashback !</div>
+                    <div className='text-2xl md:text-4xl font-bold mb-1'>{router.pathname==="/bootcamps/solana-mini"?"Get $20":"Get 50% Cashback !"}</div>
                     <div className='h-[2.6px] m-auto bg-blue-300 w-[17rem]'></div>
-                    <p className='text-[16px] md:text-[24px] mb-2 mt-8'>After <b>getting placed</b></p>
+                    <p className='text-[16px] md:text-[24px] mb-2 mt-8'>{router.pathname==="/bootcamps/solana-mini"?"On completing bootcamp":"After getting placed"}</p>
                     {/* <p className='text-[16px] md:text-[24px] my-2'>₹<b>90K : </b>Pay after placement</p> */}
                     </div>
                 </div>
@@ -39,8 +43,6 @@ const Fees = () => {
         </div>
     </div>
 
-    <p className='px-8 md:px-24 text-center mb-4 mt-24 text-5xl'>Whether you are a working professional or a student</p>
-    <p className='px-8 md:px-24 text-center text-5xl'>You can be in top 0.1% Web3 Developers !</p>
     </>
   )
 }
